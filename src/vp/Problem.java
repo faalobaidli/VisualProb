@@ -35,6 +35,9 @@ public class Problem {
 		sample.list.addAll(tokenize(sample.txt));
 		sample2.list.addAll(tokenize(sample2.txt));
 		sample3.list.addAll(tokenize(sample3.txt));
+		allSample.addAll(sample.list);
+		allSample.addAll(sample2.list);
+		allSample.addAll(sample3.list);
 		
 		
 		//check A c S
