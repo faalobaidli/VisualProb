@@ -8,52 +8,34 @@ import java.util.Scanner;
 
 public class Problem {
 	
-	public static List<String> allSample;
+	List<String> allSample = new ArrayList<String>();
 	List<Sample> samples = new ArrayList<Sample>();
 
 	public Problem(){
 		
 		Sample sample = new Sample();
 		samples.add(sample);
-		
-		Sample sample2 = new Sample();
-		samples.add(sample2);
-		
-		Sample sample3 = new Sample();
-		samples.add(sample3);
-		
+		allSample.addAll(sample.list);
 		Event event = new Event();
+		
+		Problem.checkAcS(event.listNoStar, allSample);
 		
 		boolean combineFlag = false; 
 		List<String> combSample;
 		List<String> permSample;
 		DecimalFormat df = new DecimalFormat("0.00"); 
-		
-		
-		
-		//remove redundant spaces, tokenize and add to list 
-		sample.list.addAll(tokenize(sample.txt));
-		sample2.list.addAll(tokenize(sample2.txt));
-		sample3.list.addAll(tokenize(sample3.txt));
-		allSample.addAll(sample.list);
-		allSample.addAll(sample2.list);
-		allSample.addAll(sample3.list);
-		
-		
-		//check A c S
-		checkAcS(event.list, sample.list);
-		
-		permutate(0);
-		
+						
 		if (combineFlag) {
-			
+			combine(samples);
 		} else {
-			
+			permutate(0);
+
 		}	
+		
 		
 	}
 	
-	private List<String> tokenize(String x){
+	static List<String> tokenize(String x){
 		return Arrays.asList(x.split(" *, *"));
 	}
 	
@@ -82,7 +64,7 @@ public class Problem {
 		
 	}
 	
-	private void combine(List<String> x){
+	private void combine(List<Sample> samples2){
 		
 		
 		
