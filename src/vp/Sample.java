@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/*
+ * A sample class contains all of the sample information. Mainly list of elemnts.
+*/
 public class Sample {
 
 	String txt;
@@ -16,6 +19,7 @@ public class Sample {
 	Sample(){
 		System.out.println("Insert S" + i +":");
 		txt = r.nextLine();
+		list.addAll(Problem.tokenize(txt));
 		i++;
 	}
 	

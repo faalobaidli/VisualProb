@@ -5,6 +5,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+/*
+ * Event is the class that stores all the contition's information
+ * -list of elements
+ * -list of sets
+ * -etc
+ */
 public class Event {
 
 	String txt;

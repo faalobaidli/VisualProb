@@ -6,20 +6,39 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+/*
+ * A class that contains all the problem's information
+ * -samples
+ * -events
+ * -generated lists
+ * -formula
+ * -results
+ * -etc
+ * 
+*/
 public class Problem {
 	
+	//main fields required to keep track of the collection of elements
 	List<String> allSample = new ArrayList<String>();
 	List<Sample> samples = new ArrayList<Sample>();
-
+	List<Event> events = new ArrayList<Event>();
+	
+	//the main constructor acts as a main class and instanciate the necessary lists and checks them 
 	public Problem(){
 		
+		//make one sample
 		Sample sample = new Sample();
+		//add it to a list of samples
 		samples.add(sample);
+		//add its elements to a list of strings to later check with conditions' elements
 		allSample.addAll(sample.list);
+		//make new event
 		Event event = new Event();
 		
+		//check if Event c Samples
 		Problem.checkAcS(event.listNoStar, allSample);
 		
+		//combine or permutete?
 		boolean combineFlag = false; 
 		List<String> combSample;
 		List<String> permSample;
@@ -35,10 +54,12 @@ public class Problem {
 		
 	}
 	
+	//tokenizer by comma delimiter
 	static List<String> tokenize(String x){
 		return Arrays.asList(x.split(" *, *"));
 	}
 	
+	//check containment of elements of list a in list s
 	static void checkAcS(List<String> a, List<String> s){
 		List<String> noMatchList = new ArrayList<String>();
 		boolean match = false;
@@ -64,12 +85,14 @@ public class Problem {
 		
 	}
 	
-	private void combine(List<Sample> samples2){
+	//combine multiple samples
+	private void combine(List<Sample> s){
 		
 		
 		
 	}
 	
+	//permutate multiple samples
 	private void permutate(int indexSamples){
 		
 		int size = samples.get(indexSamples).getSize();
