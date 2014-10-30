@@ -28,10 +28,13 @@ public class Problem {
 		
 		//make one sample
 		Sample sample = new Sample();
+		Sample sample2 = new Sample();
 		//add it to a list of samples
 		samples.add(sample);
+		samples.add(sample2);
 		//add its elements to a list of strings to later check with conditions' elements
 		allSample.addAll(sample.list);
+		allSample.addAll(sample2.list);
 		//make new event
 		Event event = new Event();
 		
