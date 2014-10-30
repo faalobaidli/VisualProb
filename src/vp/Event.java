@@ -18,6 +18,7 @@ public class Event {
 	String op;
 	List<String> list = new ArrayList<String>();
 	List<String> listNoStar = new ArrayList<String>();
+	List<String> sets = new ArrayList<String>();
 	Scanner r = new Scanner(System.in);
 
 	Event() {

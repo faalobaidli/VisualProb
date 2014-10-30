@@ -16,6 +16,7 @@ public class Sample {
 	int tempIndex;
 	static int i=1;
 
+	//!! later on, when we connect to the interface, the constructor must take a string instead of asking for one
 	Sample(){
 		System.out.println("Insert S" + i +":");
 		txt = r.nextLine();
