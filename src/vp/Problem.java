@@ -46,11 +46,12 @@ public class Problem {
 		DecimalFormat df = new DecimalFormat("0.00");
 		// combine or permutate samples and add to list of sets
 		if (combineFlag) {
-			sampleSets.addAll(ListGenerator.combine(0, samples));
+			sampleSets.addAll(ListGenerator.combineSamples(0, samples));
+			System.out.println(sampleSets.size());
+
 		} else {
 
 		}
-
 		
 		// make new event
 		for (int i = 0; i < 10; i++) {

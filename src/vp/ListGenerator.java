@@ -10,7 +10,7 @@ public class ListGenerator {
 	}
 	
 	//permutate multiple samples
-	static List<String> combine(int indexSamples, List<Sample> samples){
+	static List<String> combineSamples(int indexSamples, List<Sample> samples){
 		String str = "";
 		List<String> strlist = new ArrayList<String>();
 		int size = samples.get(indexSamples).getSize();
@@ -20,7 +20,7 @@ public class ListGenerator {
 			samples.get(indexSamples).setIndex(i);
 
 			if (indexSamples + 1 < samples.size()) { // Sample[] should be list to know how many samples
-				combine(indexSamples + 1, samples);
+				combineSamples(indexSamples + 1, samples);
 			}
 			else {
 				for (int j = 0; j < samples.size(); j++) {
@@ -35,6 +35,9 @@ public class ListGenerator {
 			}
 			
 		}
+		
+	//!!!!!!!! every time recursion happens, strlist is emptied
+		System.out.println(strlist.size());
 		return strlist;
 	}
 
@@ -49,9 +52,13 @@ public class ListGenerator {
 					str = str + "[^,]+,";
 				}
 			}
+			str = str.substring(0, str.length()-1);
+			System.out.println(str);				System.out.println(sampleSets.size());
+
 			for(int i=0; i<sampleSets.size(); i++){
-				if(sampleSets.get(i).matches(str)){
+				if(sampleSets.get(i).matches(".,.,.")){
 					sets.add(sampleSets.get(i));
+					System.out.println(sampleSets.get(i));
 				}
 			}
 			return sets;
