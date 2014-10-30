@@ -25,16 +25,16 @@ public class Problem {
 	
 	//the main constructor acts as a main class and instanciate the necessary lists and checks them 
 	public Problem(){
-		
-		//make one sample
-		Sample sample = new Sample();
-		Sample sample2 = new Sample();
-		//add it to a list of samples
-		samples.add(sample);
-		samples.add(sample2);
-		//add its elements to a list of strings to later check with conditions' elements
-		allSample.addAll(sample.list);
-		allSample.addAll(sample2.list);
+		Scanner c = new Scanner(System.in);
+		for(int i=0; i<10; i++){
+			//make new sample and add it to a list of samples
+			samples.add(new Sample());
+			//add its elements to a list of strings to later check with conditions' elements
+			allSample.addAll(samples.get(i).list);
+			if (c.nextLine().equals("0")){
+				break;
+			}
+		}
 		//make new event
 		Event event = new Event();
 		
@@ -42,16 +42,15 @@ public class Problem {
 		Problem.checkAcS(event.listNoStar, allSample);
 		
 		//combine or permutete?
-		boolean combineFlag = false; 
+		boolean combineFlag = true; 
 		List<String> combSample;
 		List<String> permSample;
 		DecimalFormat df = new DecimalFormat("0.00"); 
 						
 		if (combineFlag) {
-			combine(samples);
+			combine(0);
 		} else {
-			permutate(0);
-
+			
 		}	
 		
 		
@@ -89,14 +88,12 @@ public class Problem {
 	}
 	
 	//combine multiple samples
-	private void combine(List<Sample> s){
-		
-		
+	private void permutate(List<Sample> s){
 		
 	}
 	
 	//permutate multiple samples
-	private void permutate(int indexSamples){
+	private void combine(int indexSamples){
 		
 		int size = samples.get(indexSamples).getSize();
 
@@ -105,7 +102,7 @@ public class Problem {
 			samples.get(indexSamples).setIndex(i);
 
 			if (indexSamples + 1 < samples.size()) { // Sample[] should be list to know how many samples
-				permutate(indexSamples + 1);
+				combine(indexSamples + 1);
 			}
 			else {
 				for (int j = 0; j < samples.size(); j++) {
