@@ -24,6 +24,7 @@ public class Problem {
 	List<Sample> samples = new ArrayList<Sample>();
 	List<Event> events = new ArrayList<Event>();
 	Formula formulaObj = new Formula("P(A&B)");
+	static int id = 0;
 
 	// the main constructor acts as a main class and instanciate the necessary
 	// lists and checks them

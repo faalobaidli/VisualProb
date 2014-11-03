@@ -42,10 +42,10 @@ public class ListGenerator {
 	static List<String> generateEventSets(List<String> sampleSets, Event event) {
 		String str ="";
 		List<String> sets = new ArrayList<String>();
-		if (event.list.size()>0){
-			for (int j = 0; j < event.list.size(); j++) {
-				if (!event.list.get(j).equals("*")) {
-					str = str + event.list.get(j) + ",";
+		if (event.set.size()>0){
+			for (int j = 0; j < event.set.size(); j++) {
+				if (!event.set.get(j).equals("*")) {
+					str = str + event.set.get(j) + ",";
 				}else{
 					str = str + "[^,]+,";
 				}
