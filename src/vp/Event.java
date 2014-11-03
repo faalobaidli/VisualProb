@@ -16,6 +16,7 @@ public class Event {
 	String txt;
 	String rhs;
 	String op;
+	char eventName;
 	List<String> list = new ArrayList<String>();
 	List<String> listNoStar = new ArrayList<String>();
 	List<String> sets = new ArrayList<String>();
@@ -38,6 +39,16 @@ public class Event {
 			rhs = p.parseCondition(txt).get(0);
 			op = p.parseCondition(txt).get(1);
 		}
+	}
+	
+	// Salma
+	public Event(char e){
+		eventName = e;
+	}
+	
+	// Salma
+	public char getEventName(){
+		return eventName;
 	}
 
 }

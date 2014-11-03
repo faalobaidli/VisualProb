@@ -23,6 +23,7 @@ public class Problem {
 	List<String> sampleSets = new ArrayList<String>();
 	List<Sample> samples = new ArrayList<Sample>();
 	List<Event> events = new ArrayList<Event>();
+	Formula formulaObj = new Formula("P(A&B)");
 
 	// the main constructor acts as a main class and instanciate the necessary
 	// lists and checks them
@@ -60,13 +61,27 @@ public class Problem {
 				break;
 			}
 		}
-		
-		//Salma: parse formula
-		//Formula f = new Formula(string);
-		
-		
 
 	}
+	
+	//Salma: parse formula
+			//Formula f = new Formula(string);
+			
+			public void formulaListGenerator(){
+				String formula = formulaObj.getFormula();
+				System.out.println(formula);
+				int leftEvent;
+				int rightEvent;
+				for(int i=0 ; i<events.size() ; i++)
+					if(events.get(i).getEventName() == formula.charAt(0)){
+						leftEvent = i; //System.out.println(i);
+					}
+					else if(events.get(i).getEventName() == formula.charAt(2)){
+						rightEvent = i; //System.out.println(i);
+					}
+			}
+			
+			
 
 	// tokenizer by comma delimiter
 	static List<String> tokenize(String x) {
@@ -101,5 +116,8 @@ public class Problem {
 	}
 
 	// combine multiple samples
+	
+	
+	
 
 }

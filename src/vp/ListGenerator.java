@@ -65,4 +65,33 @@ public class ListGenerator {
 		}
 	}
 	
+<<<<<<< Updated upstream
+=======
+	
+	public List<String> intersection(List<String> leftEvent, List<String> rightEvent){
+		List<String> results = new ArrayList<String>();
+		for(int i=0 ; i<leftEvent.size() ; i++){
+			for(int j=0 ; j<rightEvent.size() ; j++){
+				if(leftEvent.get(i) == rightEvent.get(j)){
+					results.add(leftEvent.get(i));
+					System.out.println(leftEvent.get(i));
+				}
+			}
+		}
+		return results;
+	}
+	
+	public List<String> union(List<String> leftEvent, List<String> rightEvent){
+		List<String> results = new ArrayList<String>();
+		for(int i=0 ; i<leftEvent.size() ; i++)
+			results.add(leftEvent.get(i));
+		
+		for(int i=0 ; i<rightEvent.size() ; i++)
+			results.add(rightEvent.get(i));
+		
+		return results;
+	}
+	
+	
+>>>>>>> Stashed changes
 }
