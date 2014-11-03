@@ -43,14 +43,12 @@ public class Problem {
 		boolean combineFlag = true;
 		List<String> combSample;
 		List<String> permSample;
-		DecimalFormat df = new DecimalFormat("0.00");
 		// combine or permutate samples and add to list of sets
+		List<String >emptyLits = new ArrayList<String>(); 
 		if (combineFlag) {
-			sampleSets.addAll(ListGenerator.combineSamples(0, samples));
-			System.out.println(sampleSets.size());
-
+			sampleSets.addAll(ListGenerator.combineSamples(0, samples, emptyLits));
 		} else {
-
+			
 		}
 		
 		// make new event
@@ -74,7 +72,7 @@ public class Problem {
 	static List<String> tokenize(String x) {
 		return Arrays.asList(x.split(" *, *"));
 	}
-
+	
 	// check containment of elements of list a in list s
 	static void checkAcS(List<String> a, List<String> s) {
 		List<String> noMatchList = new ArrayList<String>();

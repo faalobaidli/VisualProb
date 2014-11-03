@@ -23,9 +23,10 @@ public class Event {
 
 	Event() {
 		System.out.println("Insert A:");
-		txt = r.nextLine();
+		txt = r.nextLine().trim();
 		Parser p = new Parser();
-		if (Arrays.asList(txt.split(" *, *")).size() > 1) {
+		//if looking for 1 element user should use '='
+		if (txt.contains(",")) {
 			list.addAll(p.parseComma(txt));
 			for (int j = 0; j < list.size(); j++) {
 				if (!list.get(j).equals("*")) {
