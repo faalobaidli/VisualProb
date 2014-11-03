@@ -55,8 +55,8 @@ public class Problem {
 		// make new event
 		for (int i = 0; i < 10; i++) {
 			events.add(new Event());
-			checkAcS(events.get(i).listNoStar, allSample);
-			events.get(i).sets.addAll(ListGenerator.generateEventSets(sampleSets, events.get(i)));
+			checkAcS(events.get(i).setNoStar, allSample);
+			events.get(i).generatedSets.addAll(ListGenerator.generateEventSets(sampleSets, events.get(i)));
 			if (c.nextLine().equals("0")) {
 				break;
 			}

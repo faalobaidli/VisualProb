@@ -14,12 +14,12 @@ import java.util.Scanner;
 public class Event {
 
 	String txt;
-	String rhs;
-	String op;
+	String conditloinVal;
+	String conditionOp;
 	char eventName;
-	List<String> list = new ArrayList<String>();
-	List<String> listNoStar = new ArrayList<String>();
-	List<String> sets = new ArrayList<String>();
+	List<String> set = new ArrayList<String>();
+	List<String> setNoStar = new ArrayList<String>();
+	List<String> generatedSets = new ArrayList<String>();
 	Scanner r = new Scanner(System.in);
 
 	Event() {
@@ -28,16 +28,16 @@ public class Event {
 		Parser p = new Parser();
 		//if looking for 1 element user should use '='
 		if (txt.contains(",")) {
-			list.addAll(p.parseComma(txt));
-			for (int j = 0; j < list.size(); j++) {
-				if (!list.get(j).equals("*")) {
-					listNoStar.add(list.get(j));
+			set.addAll(p.parseComma(txt));
+			for (int j = 0; j < set.size(); j++) {
+				if (!set.get(j).equals("*")) {
+					setNoStar.add(set.get(j));
 				}
 			}
 			// allSample needs to be populated
 		} else {
-			rhs = p.parseCondition(txt).get(0);
-			op = p.parseCondition(txt).get(1);
+			conditloinVal = p.parseCondition(txt).get(0);
+			conditionOp = p.parseCondition(txt).get(1);
 		}
 	}
 	

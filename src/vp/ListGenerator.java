@@ -65,8 +65,6 @@ public class ListGenerator {
 		}
 	}
 	
-<<<<<<< Updated upstream
-=======
 	
 	public List<String> intersection(List<String> leftEvent, List<String> rightEvent){
 		List<String> results = new ArrayList<String>();
@@ -91,7 +89,5 @@ public class ListGenerator {
 		
 		return results;
 	}
-	
-	
->>>>>>> Stashed changes
+
 }
