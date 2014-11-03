@@ -43,8 +43,6 @@ public class Problem {
 		}
 		// combine or permutate?
 		boolean combineFlag = true;
-		List<String> combSample;
-		List<String> permSample;
 		// combine or permutate samples and add to list of sets
 		List<String >emptyLits = new ArrayList<String>(); 
 		if (combineFlag) {
