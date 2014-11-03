@@ -72,13 +72,25 @@ public class Problem {
 				System.out.println(formula);
 				int leftEvent;
 				int rightEvent;
-				for(int i=0 ; i<events.size() ; i++)
-					if(events.get(i).getEventName() == formula.charAt(0)){
-						leftEvent = i; //System.out.println(i);
-					}
-					else if(events.get(i).getEventName() == formula.charAt(2)){
-						rightEvent = i; //System.out.println(i);
-					}
+				
+				for(int i=0 ; i<=2 ; i+=2){
+					if(formula.charAt(i) == 'A')
+						leftEvent=0;
+					else if(formula.charAt(i) == 'B')
+						leftEvent=1;
+					else if(formula.charAt(i) == 'C')
+						leftEvent=2;
+					else if(formula.charAt(i) == 'D')
+						leftEvent=3;
+				}
+//				for(int i=0 ; i<events.size() ; i++){		
+//					if(events.get(i).getEventName() == formula.charAt(0)){
+//						leftEvent = i; //System.out.println(i);
+//					}
+//					else if(events.get(i).getEventName() == formula.charAt(2)){
+//						rightEvent = i; //System.out.println(i);
+//					}
+//				}
 			}
 			
 			

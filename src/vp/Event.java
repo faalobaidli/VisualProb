@@ -42,13 +42,13 @@ public class Event {
 	}
 	
 	// Salma
-	public Event(char e){
-		eventName = e;
-	}
+//	public Event(char e){
+//		eventName = e;
+//	}
 	
 	// Salma
-	public char getEventName(){
-		return eventName;
-	}
+//	public char getEventName(){
+//		return eventName;
+//	}
 
 }
