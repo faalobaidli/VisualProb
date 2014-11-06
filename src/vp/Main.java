@@ -9,13 +9,6 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
-		/*
-		 *  Define the elements in the condition
-		 *  
-		 *  syso ctrl+space
-		 * 
-		 */
 		
 		String S1 = new String("1, 2, 3");
 		String S2 = new String("x, y, z");
