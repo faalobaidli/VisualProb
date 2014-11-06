@@ -1,4 +1,5 @@
 package vp;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,18 +79,11 @@ public class ListGenerator {
 	public List<String> generateEventSets(List<String> sampleSets, List<String> inputtokens) {
 		String str ="";
 		List<String> sets = new ArrayList<String>();
-<<<<<<< Updated upstream
-		if (event.set.size()>0){
-			for (int j = 0; j < event.set.size(); j++) {
-				if (!event.set.get(j).equals("*")) {
-					str = str + event.set.get(j) + ",";
-=======
 		int inputtokensSize = inputtokens.size();
 		if (inputtokensSize>0){
 			for (int j = 0; j < inputtokensSize; j++) {
 				if (!inputtokens.get(j).equals("*")) {
 					str = str + inputtokens.get(j) + ",";
->>>>>>> Stashed changes
 				}else{
 					str = str + "[^,]+,";
 				}

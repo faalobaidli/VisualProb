@@ -11,46 +11,6 @@ public class Problem {
 	
 	List<Sample> samples = new ArrayList<Sample>();
 	List<Event> events = new ArrayList<Event>();
-<<<<<<< Updated upstream
-	Formula formulaObj = new Formula("P(A&B)");
-	static int id = 0;
-
-	// the main constructor acts as a main class and instanciate the necessary
-	// lists and checks them
-	public Problem() {
-		Scanner c = new Scanner(System.in);
-		
-		for (int i = 0; i < 10; i++) {
-			// make new sample and add it to a list of samples
-			samples.add(new Sample());
-			// add its elements to a list of strings to later check with
-			// conditions' elements
-			allSample.addAll(samples.get(i).list);
-			if (c.nextLine().equals("0")) {
-				break;
-			}
-		}
-		// combine or permutate?
-		boolean combineFlag = true;
-		// combine or permutate samples and add to list of sets
-		List<String >emptyLits = new ArrayList<String>(); 
-		if (combineFlag) {
-			sampleSets.addAll(ListGenerator.combineSamples(0, samples, emptyLits));
-		} else {
-			
-		}
-		
-		// make new event
-		for (int i = 0; i < 10; i++) {
-			events.add(new Event());
-			checkAcS(events.get(i).setNoStar, allSample);
-			events.get(i).generatedSets.addAll(ListGenerator.generateEventSets(sampleSets, events.get(i)));
-			if (c.nextLine().equals("0")) {
-				break;
-			}
-		}
-
-=======
 	Formula formulaObj;
 	List<String> sampleSet = new ArrayList<String>();
 	ListGenerator listgeneratorObj = new ListGenerator();
@@ -62,7 +22,6 @@ public class Problem {
 	
 	public Problem(){
 		iprob++;
->>>>>>> Stashed changes
 	}
 	
 	public void createObjectSample(String input){
