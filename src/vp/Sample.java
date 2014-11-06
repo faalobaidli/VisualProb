@@ -1,35 +1,32 @@
 package vp;
 
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
-/*
- * A sample class contains all of the sample information. Mainly list of elemnts.
-*/
 public class Sample {
 
-	String txt;
-	List<String> list = new ArrayList<String>();
-	Scanner r = new Scanner(System.in);
-	int tempIndex;
-	static int i=1;
+	int samplesize;
+	int index=0;
+	List<String> inputtokens = new ArrayList<String>();
 
-	//!! later on, when we connect to the interface, the constructor must take a string instead of asking for one
-	Sample(){
-		System.out.println("Insert S" + i +":");
-		txt = r.nextLine();
-		list.addAll(Problem.tokenize(txt));
-		i++;
+	Sample(String input){
+		inputtokens.addAll(tokenizer(input));
+		samplesize = inputtokens.size();
+	}
+	
+	public static List<String> tokenizer(String x) { 
+		return Arrays.asList(x.split(" *, *"));
+	}
+	
+	void setIndex(int i){
+		index = i;
+	}
+	
+	int getIndex(){
+		return index;
 	}
 	
 	int getSize(){
-		return list.size();
+		return samplesize;
 	}
-	
-	void setIndex(int x){
-		tempIndex = x;
-	}
-	
 }

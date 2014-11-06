@@ -96,8 +96,7 @@ public class Calculation {
 					if((dataSet.get(i).charAt(j)) > operator.charAt(0)){
 						eventResult.add(dataSet.get(i));
 					}
-				}
-					
+				}	
 			}
 		}
 	}

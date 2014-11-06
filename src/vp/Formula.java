@@ -1,14 +1,17 @@
 package vp;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class Formula {
-	
 	String inputFormula;
 	List<String> formulaList;
 	Parser parse;
 	ListGenerator generate;
 	String formula;
+	ListGenerator listgeneratorObj = new ListGenerator();
+	int formulaProb;
 	
 	Formula(String s){
 		
@@ -21,18 +24,20 @@ public class Formula {
 		//System.out.println(formula);
 	}
 	
+	public void formulaList(Event leftEvent, Event rightEvent){
+
+		
+		if (formula.charAt(1) == '&'){
+			formulaList = listgeneratorObj.intersection(leftEvent.eventList, rightEvent.eventList);
+			formulaProb = leftEvent.eventProb * rightEvent.eventProb;
+		}
+		else if (formula.charAt(1) == '|'){
+			formulaList = listgeneratorObj.union(leftEvent.eventList, rightEvent.eventList);
+			formulaProb = leftEvent.eventProb + rightEvent.eventProb;
+		}
+	}
+	
 	public String getFormula(){
 		return formula;
 	}
-//	public void listGenerator(){
-//		formula = parse.formulaParser(inputFormula);
-//		if(formula.charAt(1) == '&')
-//			formulaList = generate.intersection();
-//		else if(formula.charAt(1) == '|')
-//			formulaList = generate.union();
-//		else 
-//			System.err.print("Undefined operator.");
-//		
-//	}
-
 }

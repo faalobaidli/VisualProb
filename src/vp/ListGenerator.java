@@ -1,57 +1,102 @@
 package vp;
-
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 public class ListGenerator {
+
+	//List<Sample> samples = new ArrayList<Sample>();
+	List<String> permut = new ArrayList<String>();
+	List<String> comb = new ArrayList<String>();
+	String oneelement = new String();
 	
-	
-	private void permutate(List<Sample> s){
-		//call combine then permutate 
-		
-	}
-	
-	
-	//permutate multiple samples
-	static List<String> combineSamples(int indexSamples, List<Sample> samples, List<String> strlist){
-		String str = "";
+	public List<String> permutation(int indexSamples, int iSample, List<Sample> samples){
 		int size = samples.get(indexSamples).getSize();
-		
-		for (int i = 0; i < size; i++) {	
+	
+		for(int i=0; i<size; i++){
 			samples.get(indexSamples).setIndex(i);
-			if (indexSamples + 1 < samples.size()) { // Sample[] should be list to know how many samples
-				combineSamples(indexSamples + 1, samples, strlist);
+			if(indexSamples+1 < iSample){				
+				permutation(indexSamples+1, iSample, samples);
 			}
-			else {
-				for (int j = 0; j < samples.size(); j++) {
-					str = str + samples.get(j).list.get(samples.get(j).tempIndex);
-					if (j != samples.size()-1){
-						str = str + ",";
-					}
+			else{
+				oneelement = new String();
+				int q=0;
+					
+				for (int j=0; j<iSample; j++){
+					// store to list
+					oneelement= oneelement+(samples.get(j).inputtokens.get(samples.get(j).getIndex()).toString());
+					
 				}
-				System.out.println(str);
-				strlist.add(str);
-				str = "";
+				//System.out.print(onepermut);
+				//permut.add(onepermut);
+				swap("",oneelement);
+				
 			}
-			
+			//System.out.println();
 		}
-		return strlist;
+		return permut;
 	}
 	
+	public void swap(String e, String perm){
+		int s=perm.length();
+		if(s == 0){
+			System.out.println(e);
+			permut.add(e);
+		}
+		else{
+			for (int i=0; i<s; i++)
+				swap(e+perm.charAt(i), perm.substring(0,i)+perm.substring(i+1,s));  
+		}
+	}
 	
-	static List<String> generateEventSets(List<String> sampleSets, Event event) {
+	public List<String> combination(int indexSamples, int iSample, List<Sample> samples){
+		int size = samples.get(indexSamples).getSize();
+	
+		for(int i=0; i<size; i++){
+			samples.get(indexSamples).setIndex(i);
+			if(indexSamples+1 < iSample){				
+				combination(indexSamples+1, iSample, samples);
+			}
+			else{
+				oneelement = new String();
+				int q=0;
+					
+				for (int j=0; j<iSample; j++){
+					// store to list
+					oneelement= oneelement+(samples.get(j).inputtokens.get(samples.get(j).getIndex()).toString());
+					
+				}
+				System.out.print(oneelement);
+				comb.add(oneelement);				
+			}
+			System.out.println();
+		}
+		return comb;
+	}
+
+	public List<String> generateEventSets(List<String> sampleSets, List<String> inputtokens) {
 		String str ="";
 		List<String> sets = new ArrayList<String>();
+<<<<<<< Updated upstream
 		if (event.set.size()>0){
 			for (int j = 0; j < event.set.size(); j++) {
 				if (!event.set.get(j).equals("*")) {
 					str = str + event.set.get(j) + ",";
+=======
+		int inputtokensSize = inputtokens.size();
+		if (inputtokensSize>0){
+			for (int j = 0; j < inputtokensSize; j++) {
+				if (!inputtokens.get(j).equals("*")) {
+					str = str + inputtokens.get(j) + ",";
+>>>>>>> Stashed changes
 				}else{
 					str = str + "[^,]+,";
 				}
 			}
 			str = str.substring(0, str.length()-1);
-			for(int i=0; i<sampleSets.size(); i++){
+			int sampleSetsSize = sampleSets.size();
+			for(int i=0; i<sampleSetsSize; i++){
 				if(sampleSets.get(i).matches(str)){
 					sets.add(sampleSets.get(i));
 					System.out.println(sampleSets.get(i));
@@ -64,12 +109,8 @@ public class ListGenerator {
 			return sets;
 		}
 	}
-<<<<<<< Updated upstream
-	
-=======
 
->>>>>>> Stashed changes
-	
+	///// Formula list generators
 	public List<String> intersection(List<String> leftEvent, List<String> rightEvent){
 		List<String> results = new ArrayList<String>();
 		for(int i=0 ; i<leftEvent.size() ; i++){
@@ -93,9 +134,5 @@ public class ListGenerator {
 		
 		return results;
 	}
-<<<<<<< Updated upstream
 
-=======
-	
->>>>>>> Stashed changes
 }

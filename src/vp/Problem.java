@@ -1,28 +1,17 @@
 package vp;
 
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
 
-/*
- * A class that contains all the problem's information
- * -samples
- * -events
- * -generated lists
- * -formula
- * -results
- * -etc
- * 
- */
+import java.util.*;
+
 public class Problem {
 
-	// main fields required to keep track of the collection of elements
-	List<String> allSample = new ArrayList<String>();
-	List<String> sampleSets = new ArrayList<String>();
+	static int iprob=0;
+	static int iSample=0;	// number of samples
+	static int iEvent=0;	// number of events
+	
 	List<Sample> samples = new ArrayList<Sample>();
 	List<Event> events = new ArrayList<Event>();
+<<<<<<< Updated upstream
 	Formula formulaObj = new Formula("P(A&B)");
 	static int id = 0;
 
@@ -61,74 +50,78 @@ public class Problem {
 			}
 		}
 
+=======
+	Formula formulaObj;
+	List<String> sampleSet = new ArrayList<String>();
+	ListGenerator listgeneratorObj = new ListGenerator();
+	
+	// for calculations
+	int leftEvent;
+	int rightEvent;
+	int formulaProb;
+	
+	public Problem(){
+		iprob++;
+>>>>>>> Stashed changes
 	}
 	
-	//Salma: parse formula
-			//Formula f = new Formula(string);
-			
-			public void formulaListGenerator(){
-				String formula = formulaObj.getFormula();
-				System.out.println(formula);
-				int leftEvent;
-				int rightEvent;
-				
-				for(int i=0 ; i<=2 ; i+=2){
-					if(formula.charAt(i) == 'A')
-						leftEvent=0;
-					else if(formula.charAt(i) == 'B')
-						leftEvent=1;
-					else if(formula.charAt(i) == 'C')
-						leftEvent=2;
-					else if(formula.charAt(i) == 'D')
-						leftEvent=3;
-				}
-//				for(int i=0 ; i<events.size() ; i++){		
-//					if(events.get(i).getEventName() == formula.charAt(0)){
-//						leftEvent = i; //System.out.println(i);
-//					}
-//					else if(events.get(i).getEventName() == formula.charAt(2)){
-//						rightEvent = i; //System.out.println(i);
-//					}
-//				}
-			}
-			
-			
-
-	// tokenizer by comma delimiter
-	static List<String> tokenize(String x) {
-		return Arrays.asList(x.split(" *, *"));
+	public void createObjectSample(String input){
+		samples.add(new Sample(input.trim()));
+		iSample++;
 	}
 	
-	// check containment of elements of list a in list s
-	static void checkAcS(List<String> a, List<String> s) {
-		List<String> noMatchList = new ArrayList<String>();
-		boolean match = false;
-		for (int i = 0; i < a.size(); i++) {
-			for (int j = 0; j < s.size(); j++) {
-				if (s.get(j).equals(a.get(i))) {
-					match = true;
-				}
-			}
-			if (!match) {
-				noMatchList.add(a.get(i));
-			}
-			match = false;
+	public void createObjectEvent(String input){
+		events.add(new Event(input.trim()));
+		iEvent++;
+	}
+	
+	public void createObjectFormula(String input){
+		formulaObj = new Formula(input.trim());
+	}
+	
+	public void permutation(){ 
+		sampleSet = listgeneratorObj.permutation(0, iSample, samples);
+	} 
+	
+	public void combination(){ 
+		sampleSet = listgeneratorObj.combination(0, iSample, samples);
+	}
+	
+	public void eventList(){
+		for( int i=0 ; i<iEvent ; i++){
+			events.get(i).generateEventSets(sampleSet);
 		}
-		if (noMatchList.size() > 0) {
-			System.err.print("One or more elements in A does not match S: "
-					+ noMatchList.get(0));
-			for (int j = 1; j < noMatchList.size(); j++) {
-				System.err.print(", " + noMatchList.get(j));
-			}
-			System.err.println(".");
-			System.exit(0);
+	}
+	
+	
+	public void formulaList(){
+		String formula = formulaObj.getFormula();
+		System.out.println(formula);
+		
+		
+		for(int i=0 ; i<=2 ; i+=2){
+			if(formula.charAt(i) == 'A')
+				leftEvent=0;
+			else if(formula.charAt(i) == 'B')
+				leftEvent=1;
+			else if(formula.charAt(i) == 'C')
+				leftEvent=2;
+			else if(formula.charAt(i) == 'D')
+				leftEvent=3;
 		}
+		
+		formulaObj.formulaList(events.get(leftEvent), events.get(rightEvent));
 
 	}
-
-	// combine multiple samples
 	
+	public void calculations(){
+		//int sampleSetSize = sampleSet.size();
+		for(int i=0 ; i<iEvent ; i++){
+			System.out.println(events.get(i).eventProb);
+		}
+		System.out.println(formulaObj.formulaProb);
+		
+	}
 	
-	
-
 }
+
