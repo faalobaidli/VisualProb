@@ -104,11 +104,7 @@ public class ListGenerator {
 		}
 	}
 
-<<<<<<< Updated upstream
-	///// Formula list generators
-=======
-	
->>>>>>> Stashed changes
+
 	public List<String> intersection(List<String> leftEvent, List<String> rightEvent){
 		List<String> results = new ArrayList<String>();
 		for(int i=0 ; i<leftEvent.size() ; i++){
