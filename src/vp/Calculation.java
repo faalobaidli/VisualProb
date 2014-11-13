@@ -103,7 +103,7 @@ public class Calculation {
 	
 	
 	// generate the list (from the permutations) that match the event condition 
-	public void generateEventPerm(){	// if the problem was permutation
+	public List<String> generateEventPerm(){	// if the problem was permutation
 		for(int i=0 ; i<dataSet.size() ; i++){
 			for(int j=0 ; j<position.length ; j++){
 				if(dataSet.get(i).charAt(j) == eventPositions.charAt(j)){
@@ -112,6 +112,7 @@ public class Calculation {
 				}
 			}
 		}
+		return eventResult;
 	}
 	
 	// generate the list for formula

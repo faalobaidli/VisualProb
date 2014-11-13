@@ -18,7 +18,7 @@ public class Problem {
 	// for calculations
 	int leftEvent;
 	int rightEvent;
-	int formulaProb;
+	//int formulaProb;
 	
 	public Problem(){
 		iprob++;
@@ -47,7 +47,7 @@ public class Problem {
 	}
 	
 	public void eventList(){
-		for( int i=0 ; i<iEvent ; i++){
+		for( int i=0 ; i<iEvent ; i++){ System.out.println("inside Problem.eventList");
 			events.get(i).generateEventSets(sampleSet);
 		}
 	}
@@ -68,7 +68,7 @@ public class Problem {
 			else if(formula.charAt(i) == 'D')
 				leftEvent=3;
 		}
-		
+		//System.out.println(events.get(leftEvent).eventProb);
 		formulaObj.formulaList(events.get(leftEvent), events.get(rightEvent));
 
 	}
@@ -76,9 +76,11 @@ public class Problem {
 	public void calculations(){
 		//int sampleSetSize = sampleSet.size();
 		for(int i=0 ; i<iEvent ; i++){
-			System.out.println(events.get(i).eventProb);
+			System.out.println("Sample set size: "+sampleSet.size());
+			//events.get(i).eventProbability(sampleSet.size());
+			//System.out.println("Problem.calculations: eventProb= "+events.get(i).eventProb);
 		}
-		System.out.println(formulaObj.formulaProb);
+		//System.out.println("\nProblem.calculation: formulaProb= "+formulaObj.formulaProb);
 		
 	}
 	

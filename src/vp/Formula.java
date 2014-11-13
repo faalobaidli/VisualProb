@@ -11,7 +11,7 @@ public class Formula {
 	ListGenerator generate;
 	String formula;
 	ListGenerator listgeneratorObj = new ListGenerator();
-	int formulaProb;
+	double formulaProb;
 	
 	Formula(String s){
 		
@@ -26,14 +26,16 @@ public class Formula {
 	
 	public void formulaList(Event leftEvent, Event rightEvent){
 
-		
-		if (formula.charAt(1) == '&'){
+		//System.out.println("DID YOU HERE");
+		if (formula.charAt(1) == '&'){//System.out.println("DID YOU HERE"+leftEvent.eventProb+leftEvent.eventListSize);
 			formulaList = listgeneratorObj.intersection(leftEvent.eventList, rightEvent.eventList);
 			formulaProb = leftEvent.eventProb * rightEvent.eventProb;
+			System.out.println("FormulaProb: &: "+formulaProb);
 		}
 		else if (formula.charAt(1) == '|'){
 			formulaList = listgeneratorObj.union(leftEvent.eventList, rightEvent.eventList);
 			formulaProb = leftEvent.eventProb + rightEvent.eventProb;
+			System.out.println("FormulaProb: | :"+formulaProb);
 		}
 	}
 	

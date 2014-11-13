@@ -13,11 +13,50 @@ public class Main {
 		String S1 = new String("1, 2, 3");
 		String S2 = new String("x, y, z");
 		
-		String A = new String("=2");
-		String B = new String(">1");
+		String A = new String(">2");
+		String B = new String("=1");
 		
 		String F = new String("P(A&B)");
 		
+		Scanner scan = new Scanner(System.in);
+		String input;
+		
+		
+		Problem problem1 = new Problem();
+		
+		// ***** All the processes after clicking submit button *****
+		// if add more sample
+		System.out.println("Enter sample 1: ");
+		input = scan.next(); 
+		problem1.createObjectSample(input);
+		
+		System.out.println("Enter sample 2: ");
+		input = scan.next(); 
+		problem1.createObjectSample(input);
+		
+		System.out.println("Enter event 1: ");
+		input = scan.next(); 
+		problem1.createObjectEvent(input);
+		
+		System.out.println("Enter event 2: ");
+		input = scan.next(); 
+		problem1.createObjectEvent(input);
+		
+		System.out.println("Enter formula: ");
+		input = scan.next(); 
+		problem1.createObjectFormula(input);
+		
+		
+		problem1.permutation();
+		
+		System.out.println("\n\nproblem1.eventList(); ******");
+		problem1.eventList();
+		System.out.println("\n\nproblem1.formulaList(); ******");
+		problem1.formulaList();
+		//System.out.println("\n\nproblem1.calculations(); ******");
+		//problem1.calculations();
+
+		System.out.println("\n\n***END***");
 //		List<String> S1 = new ArrayList<String>();
 //		List<String> S2 = new ArrayList<String>();
 //		List<String> S3 = new ArrayList<String>();
@@ -42,25 +81,6 @@ public class Main {
 		
 //		String S = "11, 12, 13, 14";
 		
-		Problem problem1 = new Problem();
-		
-		// ***** All the processes after clicking submit button *****
-		// if add more sample
-		problem1.createObjectSample(S1);
-		problem1.createObjectSample(S2);
-		
-		problem1.createObjectEvent(A);
-		problem1.createObjectEvent(B);
-		
-		problem1.createObjectFormula(F);
-		
-		
-		problem1.permutation();
-		
-		problem1.eventList();
-		problem1.formulaList();
-		
-		problem1.calculations();
 
 	}
 

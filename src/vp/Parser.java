@@ -21,17 +21,17 @@ public class Parser {
 		return sampleObj;
 	}
 	
-	public List<String> parseEvent(String txt){
-		if (txt.startsWith(">=")){
-			return Arrays.asList(txt.substring(2).trim(), ">=");
-		}else if (txt.startsWith("<=")){
-			return Arrays.asList(txt.substring(2).trim(), "<=");
-		}else if (txt.startsWith(">")){
-			return Arrays.asList(txt.substring(1).trim(), ">");
-		}else if (txt.startsWith("<")){
-			return Arrays.asList(txt.substring(1).trim(), "<");
-		}else if (txt.startsWith("=")){
-			return Arrays.asList(txt.substring(1).trim(), "=");
+	public String parseEvent(String txt){ System.out.println("ParseEvent"+txt);
+		if (txt.startsWith(">=")){return "="+ ":"+ txt.substring(1).trim();
+			//return Arrays.asList( ">=", txt.substring(2).trim());
+		}else if (txt.startsWith("<=")){return "="+ ":"+ txt.substring(1).trim();
+			//return Arrays.asList("<=", txt.substring(2).trim()); 
+		}else if (txt.startsWith(">")){return ">"+ ":"+ txt.substring(1).trim();
+			//return Arrays.asList(">", txt.substring(1).trim() );
+		}else if (txt.startsWith("<")){return "<"+ ":"+ txt.substring(1).trim();
+			//return Arrays.asList("<" , txt.substring(1).trim());
+		}else if (txt.startsWith("=")){ 
+			return "="+ ":"+ txt.substring(1).trim();
 		}else{
 			System.err.print("Unknown operator. Use '>', '<' or '='. Or use comma(s) to specify a set.");
 			System.exit(0);
