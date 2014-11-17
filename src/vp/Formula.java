@@ -44,7 +44,7 @@ public class Formula {
 	}
 	
 	public String getFormulaStr(){
-		return "Formula lists:\n"+formulaList.toString();
+		return "Formula lists:\n"+formulaList.toString()+Double.toString(formulaProb);
 	}
 	
 }
