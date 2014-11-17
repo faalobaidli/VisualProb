@@ -1393,7 +1393,7 @@ static  String SampleOutputF_3;
         
         Problem p = new Proplem(samples, events, formula);
         
-        Controller.getInstance().setData(p.resultString);
+        Controller.getInstance().setData(p.resultString());
         
 
     }                                           
