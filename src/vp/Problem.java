@@ -98,9 +98,10 @@ public class Problem {
 		
 		str = "Sample sets:\n"+sampleSet.toString()+"\n\n";
 		for(int i=0;i<iEvent ; i++){
-			str.concat(events.get(i).getEventStr());
+			str+=(events.get(i).getEventStr());
 		}
-		str.concat(formulaObj.getFormulaStr());
+		str+=(formulaObj.getFormulaStr());
+		
 		return str;
 	}
 	
