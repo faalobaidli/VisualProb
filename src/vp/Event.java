@@ -33,6 +33,10 @@ public class Event {
 		//System.out.println("Event List Size: "+eventListSize);
 	}
 	
+	public String getEventStr(){
+		return eventList.toString();
+	}
+	
 //	public void eventProbability(int sampleSetSize){
 //		System.out.print("eventListSize: "+eventListSize);
 //		System.out.print(" / SampleSetSize: "+sampleSetSize);

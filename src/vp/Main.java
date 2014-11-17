@@ -10,22 +10,27 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		String S1 = new String("1, 2, 3");
-		String S2 = new String("x, y, z");
-		
-		String A = new String(">2");
-		String B = new String("=1");
-		
-		String F = new String("P(A&B)");
+//		String S1 = new String("1, 2, 3");
+//		String S2 = new String("x, y, z");
+//		
+//		String A = new String(">2");
+//		String B = new String("=1");
+//		
+//		String F = new String("P(A&B)");
 		
 		Scanner scan = new Scanner(System.in);
 		String input;
+
+//		int flag;
 		
 		
 		Problem problem1 = new Problem();
 		
 		// ***** All the processes after clicking submit button *****
 		// if add more sample
+		//System.out.println("Choose: (1)Permutation, (2)Combination: ");
+		//flag = scan.nextInt(); 
+		
 		System.out.println("Enter sample 1: ");
 		input = scan.next(); 
 		problem1.createObjectSample(input);
@@ -46,8 +51,12 @@ public class Main {
 		input = scan.next(); 
 		problem1.createObjectFormula(input);
 		
-		
-		problem1.permutation();
+//		if(flag==1)
+//			problem1.permutation();
+//		else if(flag==2)
+//			problem1.combination();
+//		else
+//			System.out.println("Wrong input.");
 		
 		System.out.println("\n\nproblem1.eventList(); ******");
 		problem1.eventList();

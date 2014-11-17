@@ -42,4 +42,9 @@ public class Formula {
 	public String getFormula(){
 		return formula;
 	}
+	
+	public String getFormulaStr(){
+		return formulaList.toString();
+	}
+	
 }

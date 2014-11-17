@@ -24,6 +24,21 @@ public class Problem {
 		iprob++;
 	}
 	
+	public Problem(int flag, List<String> samplesList, List<String> eventsList, String formula){
+		iprob++;
+		flag = 2; // Combination
+		for(int i=0; i<samplesList.size() ; i++){
+			samples.add(new Sample(samplesList.get(i).trim()));
+			iSample++;
+		}
+		for(int i=0; i<eventsList.size() ; i++){
+			events.add(new Event(eventsList.get(i).trim()));
+			iEvent++;
+		}
+		
+		formulaObj = new Formula(formula.trim());
+	}
+	
 	public void createObjectSample(String input){
 		samples.add(new Sample(input.trim()));
 		iSample++;
@@ -71,6 +86,10 @@ public class Problem {
 		//System.out.println(events.get(leftEvent).eventProb);
 		formulaObj.formulaList(events.get(leftEvent), events.get(rightEvent));
 
+	}
+	
+	public String getSampleStr(){
+		return sampleSet.toString();
 	}
 	
 	public void calculations(){
