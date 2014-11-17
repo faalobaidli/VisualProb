@@ -89,7 +89,7 @@ public class Problem {
 	}
 	
 	public String getSampleStr(){
-		return sampleSet.toString();
+		return "Sample sets:\n"+sampleSet.toString()+"\n\n";
 	}
 	
 	public void calculations(){
