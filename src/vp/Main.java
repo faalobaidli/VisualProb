@@ -1,6 +1,7 @@
 package vp;
 
 import java.util.*;
+import frame.*;
 
 public class Main {
 
@@ -22,7 +23,6 @@ public class Main {
 		String input;
 
 //		int flag;
-		
 		
 		Problem problem1 = new Problem();
 		
