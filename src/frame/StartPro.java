@@ -107,9 +107,9 @@ public class StartPro extends javax.swing.JFrame {
 
         input.add(new InputPro());
         input.get(0).setID(0);
-        setVisible(false);
+        //setVisible(false);
         input.get(0).setVisible(true);
-     //   new StartPro().setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        //new StartPro().setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         //  setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         //  setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
     }

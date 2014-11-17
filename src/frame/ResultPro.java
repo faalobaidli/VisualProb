@@ -1,10 +1,14 @@
 package frame;
 
 import java.awt.Color;
+import java.util.List;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+
+import controller.*;
 
 public class ResultPro extends javax.swing.JFrame {
 
@@ -175,22 +179,25 @@ public class ResultPro extends javax.swing.JFrame {
 
     private void TextAreaResultAncestorAdded(javax.swing.event.AncestorEvent evt) {
 
-        EditEventOutputA = new InputPro().EventOutputA;
-        EditEventOutputB = new InputPro().EventOutputB;
-        EditEventOutputC = new InputPro().EventOutputC;
-        EditEventOutputD = new InputPro().EventOutputD;
-        EditFormulaOutput = new InputPro().FormulaOutput;
-        EditSampleOutputF_1 = new InputPro().SampleOutputF_1;
-        EditSampleOutputF_2 = new InputPro().SampleOutputF_2;
-        EditSampleOutputF_3 = new InputPro().SampleOutputF_3;
-        EditSampleOutputF_4 = new InputPro().SampleOutputF_4;
+//        EditEventOutputA = new InputPro().EventOutputA;
+//        EditEventOutputB = new InputPro().EventOutputB;
+//        EditEventOutputC = new InputPro().EventOutputC;
+//        EditEventOutputD = new InputPro().EventOutputD;
+//        EditFormulaOutput = new InputPro().FormulaOutput;
+//        EditSampleOutputF_1 = new InputPro().SampleOutputF_1;
+//        EditSampleOutputF_2 = new InputPro().SampleOutputF_2;
+//        EditSampleOutputF_3 = new InputPro().SampleOutputF_3;
+//        EditSampleOutputF_4 = new InputPro().SampleOutputF_4;
 
-        String newline = System.getProperty("line.separator");
-        TextAreaResult.setText("The Event A output is :" + EditEventOutputA + newline + "The Fourmula output is :" + EditFormulaOutput + newline
-                + "The Sample space 1 output is :" + EditSampleOutputF_1 + newline + "The Event B output is :" + EditEventOutputB + newline
-                + "The Event C output is :" + EditEventOutputC + newline + "The Event D output is :" + EditEventOutputD + newline
-                + "The Sample space 2 output is" + EditSampleOutputF_2 + newline + "The Sample space 3 output is"
-                + EditSampleOutputF_3 + newline + "The Sample space 4 output is" + EditSampleOutputF_4);
+    	String data = Controller.getInstance().getData();
+    	
+//        String newline = System.getProperty("line.separator");
+        TextAreaResult.setText(data);
+//        TextAreaResult.setText("The Event A output is :" + EditEventOutputA + newline + "The Fourmula output is :" + EditFormulaOutput + newline
+//                + "The Sample space 1 output is :" + EditSampleOutputF_1 + newline + "The Event B output is :" + EditEventOutputB + newline
+//                + "The Event C output is :" + EditEventOutputC + newline + "The Event D output is :" + EditEventOutputD + newline
+//                + "The Sample space 2 output is" + EditSampleOutputF_2 + newline + "The Sample space 3 output is"
+//                + EditSampleOutputF_3 + newline + "The Sample space 4 output is" + EditSampleOutputF_4);
 
        
     }

@@ -2,7 +2,10 @@ package frame;
 
 
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.EmptyStackException;
+import java.util.List;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -11,6 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import controller.*;
 
 
 public class InputPro extends JFrame {
@@ -99,9 +103,9 @@ static  String SampleOutputF_3;
     private JLabel jLabel8;
     private JLabel jLabel9;
     
+    
     public InputPro() {
         initComponents();
-      
        
     }
   
@@ -1356,17 +1360,43 @@ static  String SampleOutputF_3;
 
         }
       
-        FormulaOutput = FormulaTextField.getText();
-        EventOutputA = EventTextField.getText();
-        EventOutputB = EventTextField1.getText();
-        EventOutputC = EventTextField2.getText();
-        EventOutputD = EventTextField3.getText();
-        SampleOutputF_1 = SampleTextField.getText();
-        SampleOutputF_2 = SampleTextField2.getText();
-        SampleOutputF_3 = SampleTextField5.getText();
-        SampleOutputF_4 = SampleTextField3.getText();
-         
-
+        
+        String formula = FormulaTextField.getText();
+        
+        List<String> samples = new ArrayList();
+        if (!SampleTextField.getText().isEmpty()){
+        	samples.add(SampleTextField.getText());
+        }
+        if (!SampleTextField2.getText().isEmpty()){
+        	samples.add(SampleTextField2.getText());
+        }
+        if (!SampleTextField5.getText().isEmpty()){
+        	samples.add(SampleTextField5.getText());
+        }
+        if (!SampleTextField3.getText().isEmpty()){
+        	samples.add(SampleTextField3.getText());
+        }
+        
+        List<String> events = new ArrayList();
+        if (!EventTextField.getText().isEmpty()){
+        	events.add(EventTextField.getText());
+        }
+        if (!EventTextField1.getText().isEmpty()){
+        	events.add(EventTextField1.getText());
+        }
+        if (!EventTextField2.getText().isEmpty()){
+        	events.add(EventTextField2.getText());
+        }
+        if (!EventTextField3.getText().isEmpty()){
+        	events.add(EventTextField3.getText());
+        }
+        
+        Problem p = new Proplem(samples, events, formula);
+        
+        String data = p.resultString;;
+        
+        Controller.getInstance().setData(data);
+        
 
     }                                           
 
