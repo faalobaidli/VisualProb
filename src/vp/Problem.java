@@ -24,9 +24,10 @@ public class Problem {
 		iprob++;
 	}
 	
-	public Problem( List<String> samplesList, List<String> eventsList, String formula){
+
+	public Problem(List<String> samplesList, List<String> eventsList, String formula){
 		iprob++;
-		//flag = 2; // Combination
+	//	flag = 2; // Combination
 		for(int i=0; i<samplesList.size() ; i++){
 			samples.add(new Sample(samplesList.get(i).trim()));
 			iSample++;

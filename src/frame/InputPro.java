@@ -1061,7 +1061,7 @@ static  String SampleOutputF_3;
 
     private void FormulaButtonActionPerformed(java.awt.event.ActionEvent evt) {                                              
 
-        FormulaOutput = FormulaTextField.getText() + "p";
+        FormulaOutput = FormulaTextField.getText() + "P";
         System.out.println(FormulaOutput);
         FormulaTextField.setText(FormulaOutput);
 
@@ -1108,7 +1108,7 @@ static  String SampleOutputF_3;
 
     private void FormulaButton9ActionPerformed(java.awt.event.ActionEvent evt) {                                               
 
-        FormulaOutput = FormulaTextField.getText() + "∪";
+        FormulaOutput = FormulaTextField.getText() + "|";
         System.out.println(FormulaOutput);
         FormulaTextField.setText(FormulaOutput);
 
@@ -1116,7 +1116,7 @@ static  String SampleOutputF_3;
 
     private void FormulaButton10ActionPerformed(java.awt.event.ActionEvent evt) {                                                
 
-        FormulaOutput = FormulaTextField.getText() + "∩";
+        FormulaOutput = FormulaTextField.getText() + "&";
         System.out.println(FormulaOutput);
         FormulaTextField.setText(FormulaOutput);
 
