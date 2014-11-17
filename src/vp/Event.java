@@ -34,7 +34,7 @@ public class Event {
 	}
 	
 	public String getEventStr(){
-		return "Event lists:\n"+eventList.toString()+"\n\n"+Double.toString(eventProb);
+		return "Event lists:\n"+eventList.toString()+"\n"+Double.toString(eventProb)+"\n\n";
 	}
 	
 //	public void eventProbability(int sampleSetSize){
