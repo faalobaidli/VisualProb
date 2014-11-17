@@ -24,9 +24,9 @@ public class Problem {
 		iprob++;
 	}
 	
-	public Problem(int flag, List<String> samplesList, List<String> eventsList, String formula){
+	public Problem( List<String> samplesList, List<String> eventsList, String formula){
 		iprob++;
-		flag = 2; // Combination
+		//flag = 2; // Combination
 		for(int i=0; i<samplesList.size() ; i++){
 			samples.add(new Sample(samplesList.get(i).trim()));
 			iSample++;
@@ -37,21 +37,26 @@ public class Problem {
 		}
 		
 		formulaObj = new Formula(formula.trim());
+		
+
+		permutation();
+		eventList();
+		formulaList();
 	}
 	
-	public void createObjectSample(String input){
-		samples.add(new Sample(input.trim()));
-		iSample++;
-	}
-	
-	public void createObjectEvent(String input){
-		events.add(new Event(input.trim()));
-		iEvent++;
-	}
-	
-	public void createObjectFormula(String input){
-		formulaObj = new Formula(input.trim());
-	}
+//	public void createObjectSample(String input){
+//		samples.add(new Sample(input.trim()));
+//		iSample++;
+//	}
+//	
+//	public void createObjectEvent(String input){
+//		events.add(new Event(input.trim()));
+//		iEvent++;
+//	}
+//	
+//	public void createObjectFormula(String input){
+//		formulaObj = new Formula(input.trim());
+//	}
 	
 	public void permutation(){ 
 		sampleSet = listgeneratorObj.permutation(0, iSample, samples);
@@ -88,17 +93,27 @@ public class Problem {
 
 	}
 	
-	public String getSampleStr(){
-		return "Sample sets:\n"+sampleSet.toString()+"\n\n";
+	public String resultString(){
+		String str;
+		
+		str = "Sample sets:\n"+sampleSet.toString()+"\n\n";
+		for(int i=0;i<iEvent ; i++){
+			str.concat(events.get(i).getEventStr());
+		}
+		str.concat(formulaObj.getFormulaStr());
+		return str;
 	}
 	
 	public void calculations(){
+		
+		
+		
 		//int sampleSetSize = sampleSet.size();
-		for(int i=0 ; i<iEvent ; i++){
-			System.out.println("Sample set size: "+sampleSet.size());
+		//for(int i=0 ; i<iEvent ; i++){
+			//System.out.println("Sample set size: "+sampleSet.size());
 			//events.get(i).eventProbability(sampleSet.size());
 			//System.out.println("Problem.calculations: eventProb= "+events.get(i).eventProb);
-		}
+		//}
 		//System.out.println("\nProblem.calculation: formulaProb= "+formulaObj.formulaProb);
 		
 	}

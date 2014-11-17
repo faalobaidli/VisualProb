@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controller.*;
-
+import vp.*;
 
 public class InputPro extends JFrame {
 
@@ -1391,7 +1391,7 @@ static  String SampleOutputF_3;
         	events.add(EventTextField3.getText());
         }
         
-        Problem p = new Proplem(samples, events, formula);
+        Problem p = new Problem(samples, events, formula);
         
         Controller.getInstance().setData(p.resultString());
         
