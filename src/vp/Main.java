@@ -31,25 +31,25 @@ public class Main {
 		//System.out.println("Choose: (1)Permutation, (2)Combination: ");
 		//flag = scan.nextInt(); 
 		
-		System.out.println("Enter sample 1: ");
-		input = scan.next(); 
-		problem1.createObjectSample(input);
-		
-		System.out.println("Enter sample 2: ");
-		input = scan.next(); 
-		problem1.createObjectSample(input);
-		
-		System.out.println("Enter event 1: ");
-		input = scan.next(); 
-		problem1.createObjectEvent(input);
-		
-		System.out.println("Enter event 2: ");
-		input = scan.next(); 
-		problem1.createObjectEvent(input);
-		
-		System.out.println("Enter formula: ");
-		input = scan.next(); 
-		problem1.createObjectFormula(input);
+//		System.out.println("Enter sample 1: ");
+//		input = scan.next(); 
+//		problem1.createObjectSample(input);
+//		
+//		System.out.println("Enter sample 2: ");
+//		input = scan.next(); 
+//		problem1.createObjectSample(input);
+//		
+//		System.out.println("Enter event 1: ");
+//		input = scan.next(); 
+//		problem1.createObjectEvent(input);
+//		
+//		System.out.println("Enter event 2: ");
+//		input = scan.next(); 
+//		problem1.createObjectEvent(input);
+//		
+//		System.out.println("Enter formula: ");
+//		input = scan.next(); 
+//		problem1.createObjectFormula(input);
 		
 //		if(flag==1)
 //			problem1.permutation();
