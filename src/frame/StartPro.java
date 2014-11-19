@@ -1,6 +1,8 @@
 package frame;
 
 import java.awt.Color;
+
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
@@ -9,7 +11,7 @@ import javax.swing.JLabel;
 
 public class StartPro extends javax.swing.JFrame {
 
-    static List<InputPro> input = new ArrayList();
+    static List<InputPro> input = new ArrayList<InputPro>();
 
     // Variables declaration                    
     private JButton AboutUsButton;

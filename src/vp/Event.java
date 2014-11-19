@@ -29,7 +29,7 @@ public class Event {
 		eventListSize = eventList.size();
 		int sampleSetSize = sampleSets.size();
 		eventProb = 1.0*eventListSize/sampleSetSize;
-		System.out.println("EventProb = "+eventProb);
+		//System.out.println("EventProb = "+eventProb);
 		//System.out.println("Event List Size: "+eventListSize);
 	}
 	

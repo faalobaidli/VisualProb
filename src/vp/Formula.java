@@ -30,12 +30,12 @@ public class Formula {
 		if (formula.charAt(1) == '&'){//System.out.println("DID YOU HERE"+leftEvent.eventProb+leftEvent.eventListSize);
 			formulaList = listgeneratorObj.intersection(leftEvent.eventList, rightEvent.eventList);
 			formulaProb = leftEvent.eventProb * rightEvent.eventProb;
-			System.out.println("FormulaProb: &: "+formulaProb);
+			//System.out.println("FormulaProb: &: "+formulaProb);
 		}
 		else if (formula.charAt(1) == '|'){
 			formulaList = listgeneratorObj.union(leftEvent.eventList, rightEvent.eventList);
 			formulaProb = leftEvent.eventProb + rightEvent.eventProb;
-			System.out.println("FormulaProb: | :"+formulaProb);
+			//System.out.println("FormulaProb: | :"+formulaProb);
 		}
 	}
 	

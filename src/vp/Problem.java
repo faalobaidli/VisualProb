@@ -68,7 +68,7 @@ public class Problem {
 	}
 	
 	public void eventList(){
-		for( int i=0 ; i<iEvent ; i++){ System.out.println("inside Problem.eventList");
+		for( int i=0 ; i<iEvent ; i++){ //System.out.println("inside Problem.eventList");
 			events.get(i).generateEventSets(sampleSet);
 		}
 	}
@@ -76,7 +76,7 @@ public class Problem {
 	
 	public void formulaList(){
 		String formula = formulaObj.getFormula();
-		System.out.println(formula);
+		//System.out.println(formula);
 		
 		
 		for(int i=0 ; i<=2 ; i+=2){
