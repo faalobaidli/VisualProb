@@ -2,6 +2,8 @@
 package frame;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import static java.awt.Font.BOLD;
 
@@ -19,7 +21,8 @@ public class DemoPro extends JFrame implements GInteraction {
     
     Problem p = Controller.getInstance().problem;
     
-
+    
+    
     public DemoPro() {
            setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         pack();
@@ -57,25 +60,43 @@ public class DemoPro extends JFrame implements GInteraction {
         style.setFont(null);
         scene_.setStyle(style);
 
-        // Create som graphic objects
-        GObject object1 = new TestObject("/", scene_, 550.0, 100.0);
+        //create root node
+        int rx = 550;
+        int yx = 100;
+        GObject root = new TestObject("/", scene_, rx, yx);
 
-        GObject object2 = new TestObject(p.samples.get(0).inputtokens.get(0), object1, 250.0, 250.0);
-        GObject object3 = new TestObject(p.samples.get(0).inputtokens.get(1), object1, 500.0, 250.0);
-        GObject object4 = new TestObject(p.samples.get(0).inputtokens.get(2), object1, 625.0, 250.0);
-
-        GObject object5 = new TestObject("5", object2, 150.0, 400.0);
-        GObject object6 = new TestObject("6", object2, 250.0, 400.0);
-        GObject object7 = new TestObject("7", object2, 350.0, 400.0);
-
-        GObject object8 = new TestObject("8", object4, 625.0, 400.0);
-
-        GObject object9 = new TestObject("9", object7, 250.0, 550.0);
-        GObject object10 = new TestObject("10", object7, 350.0, 550.0);
-        GObject object11 = new TestObject("55", object7, 400.0, 550.0);
-
-        GObject object12 = new TestObject("11", object8, 475.0, 550.0);
-        GObject object13 = new TestObject("12", object8, 600.0, 550.0);
+        //create and link first level/sample to root
+        List<GObject> nodeList = new ArrayList<GObject>();
+        for (int i = 0; i < p.samples.get(0).inputtokens.size(); i++){
+    		nodeList.add(new TestObject(p.samples.get(0).inputtokens.get(i), root, rx+(50*i), yx+100));
+        }
+        
+        //create and link the rest to the root
+        int pl1sti = 0;
+        for (int l = 1; l < p.samples.size(); l++){
+        	pl1sti = nodeList.size()-p.samples.get(l-1).inputtokens.size();
+            for (int pl = pl1sti; pl < pl1sti+p.samples.get(l-1).inputtokens.size(); pl++){
+            	for (int e = 0; e < p.samples.get(l).inputtokens.size(); e++){
+            		
+            		nodeList.add(new TestObject(p.samples.get(l).inputtokens.get(e), nodeList.get(pl), rx+(100*e), yx+100+(100*l)));
+            		
+            	}
+            }
+        	
+        }
+        
+//        GObject object5 = new TestObject("5", object2, 150.0, 400.0);
+//        GObject object6 = new TestObject("6", object2, 250.0, 400.0);
+//        GObject object7 = new TestObject("7", object2, 350.0, 400.0);
+//
+//        GObject object8 = new TestObject("8", object4, 625.0, 400.0);
+//
+//        GObject object9 = new TestObject("9", object7, 250.0, 550.0);
+//        GObject object10 = new TestObject("10", object7, 350.0, 550.0);
+//        GObject object11 = new TestObject("55", object7, 400.0, 550.0);
+//
+//        GObject object12 = new TestObject("11", object8, 475.0, 550.0);
+//        GObject object13 = new TestObject("12", object8, 600.0, 550.0);
 
         pack();
         setSize(new Dimension(500, 500));
