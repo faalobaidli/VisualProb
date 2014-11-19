@@ -189,7 +189,7 @@ public class ResultPro extends javax.swing.JFrame {
 //        EditSampleOutputF_3 = new InputPro().SampleOutputF_3;
 //        EditSampleOutputF_4 = new InputPro().SampleOutputF_4;
 
-    	String data = Controller.getInstance().getData();
+    	String data = Controller.getInstance().problem.resultString();
     	
 //        String newline = System.getProperty("line.separator");
         TextAreaResult.setText(data);

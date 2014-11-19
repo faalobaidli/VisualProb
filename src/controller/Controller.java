@@ -7,7 +7,7 @@ import vp.*;
 
 public class Controller {
 	
-	String stringList;
+	public Problem problem;
 
 	private Controller() {}
 	
@@ -21,11 +21,11 @@ public class Controller {
 		return instance;
 	}
 
-	public void setData(String data) {
-		stringList = data;
+	public void setData(Problem p) {
+		problem = p;
 	}
 	
-	public String getData() {
-		return stringList;
+	public Problem getData() {
+		return problem;
 	}
 }
