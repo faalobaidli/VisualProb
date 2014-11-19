@@ -2,10 +2,13 @@
 package frame;
 
 import java.awt.*;
+
 import static java.awt.Font.BOLD;
 
 import javax.swing.*;
 
+import vp.*;
+import controller.Controller;
 import no.geosoft.cc.geometry.Geometry;
 import no.geosoft.cc.graphics.*;
 
@@ -14,7 +17,7 @@ public class DemoPro extends JFrame implements GInteraction {
     
     private GScene scene_;
     
-    
+    Problem p = Controller.getInstance().problem;
     
 
     public DemoPro() {
@@ -55,9 +58,9 @@ public class DemoPro extends JFrame implements GInteraction {
         scene_.setStyle(style);
 
         // Create som graphic objects
-        GObject object1 = new TestObject("1hnhgf\nhfgfj", scene_, 550.0, 100.0);
+        GObject object1 = new TestObject("/", scene_, 550.0, 100.0);
 
-        GObject object2 = new TestObject("2", object1, 250.0, 250.0);
+        GObject object2 = new TestObject(p.getSamples().get(0).inputtokens.get(0) , object1, 250.0, 250.0);
         GObject object3 = new TestObject("3", object1, 500.0, 250.0);
         GObject object4 = new TestObject("4", object1, 625.0, 250.0);
 

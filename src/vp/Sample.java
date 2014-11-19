@@ -7,7 +7,7 @@ public class Sample {
 
 	int samplesize;
 	int index=0;
-	List<String> inputtokens = new ArrayList<String>();
+	public List<String> inputtokens = new ArrayList<String>();
 
 	Sample(String input){
 		inputtokens.addAll(tokenizer(input));

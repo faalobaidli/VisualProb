@@ -25,6 +25,26 @@ public class Problem {
 	}
 	
 
+	public List<Sample> getSamples() {
+		return samples;
+	}
+
+
+	public void setSamples(List<Sample> samples) {
+		this.samples = samples;
+	}
+
+
+	public List<Event> getEvents() {
+		return events;
+	}
+
+
+	public void setEvents(List<Event> events) {
+		this.events = events;
+	}
+
+
 	public Problem(List<String> samplesList, List<String> eventsList, String formula){
 		iprob++;
 	//	flag = 2; // Combination
