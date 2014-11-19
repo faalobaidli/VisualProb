@@ -11,7 +11,8 @@ import javax.swing.JLabel;
 
 public class StartPro extends javax.swing.JFrame {
 
-    static List<InputPro> input = new ArrayList<InputPro>();
+    static List<InputPro> input = new ArrayList();
+    static int solutionID = 0;
 
     // Variables declaration                    
     private JButton AboutUsButton;
@@ -106,11 +107,12 @@ public class StartPro extends javax.swing.JFrame {
     }
 
     private void StartButtonActionPerformed(java.awt.event.ActionEvent evt) {
-
+    	
         input.add(new InputPro());
-        input.get(0).setID(0);
+        input.get(solutionID).setID(solutionID);
         //setVisible(false);
-        input.get(0).setVisible(true);
+        input.get(solutionID).setVisible(true);
+        solutionID++;
         //new StartPro().setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         //  setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         //  setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
