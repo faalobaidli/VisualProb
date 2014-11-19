@@ -9,8 +9,8 @@ public class Problem {
 	static int iSample=0;	// number of samples
 	static int iEvent=0;	// number of events
 	
-	List<Sample> samples = new ArrayList<Sample>();
-	List<Event> events = new ArrayList<Event>();
+	public List<Sample> samples = new ArrayList<Sample>();
+	public List<Event> events = new ArrayList<Event>();
 	Formula formulaObj;
 	List<String> sampleSet = new ArrayList<String>();
 	ListGenerator listgeneratorObj = new ListGenerator();
@@ -22,26 +22,6 @@ public class Problem {
 	
 	public Problem(){
 		iprob++;
-	}
-	
-
-	public List<Sample> getSamples() {
-		return samples;
-	}
-
-
-	public void setSamples(List<Sample> samples) {
-		this.samples = samples;
-	}
-
-
-	public List<Event> getEvents() {
-		return events;
-	}
-
-
-	public void setEvents(List<Event> events) {
-		this.events = events;
 	}
 
 

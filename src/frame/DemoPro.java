@@ -60,9 +60,9 @@ public class DemoPro extends JFrame implements GInteraction {
         // Create som graphic objects
         GObject object1 = new TestObject("/", scene_, 550.0, 100.0);
 
-        GObject object2 = new TestObject(p.getSamples().get(0).inputtokens.get(0) , object1, 250.0, 250.0);
-        GObject object3 = new TestObject("3", object1, 500.0, 250.0);
-        GObject object4 = new TestObject("4", object1, 625.0, 250.0);
+        GObject object2 = new TestObject(p.samples.get(0).inputtokens.get(0), object1, 250.0, 250.0);
+        GObject object3 = new TestObject(p.samples.get(0).inputtokens.get(1), object1, 500.0, 250.0);
+        GObject object4 = new TestObject(p.samples.get(0).inputtokens.get(2), object1, 625.0, 250.0);
 
         GObject object5 = new TestObject("5", object2, 150.0, 400.0);
         GObject object6 = new TestObject("6", object2, 250.0, 400.0);
