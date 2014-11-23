@@ -11,14 +11,12 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-//		String S1 = new String("1, 2, 3");
-//		String S2 = new String("x, y, z");
-//		
-//		String A = new String(">2");
-//		String B = new String("=1");
-//		
-//		String F = new String("P(A&B)");
+		String S1 = new String("1, 2, 3");
+		String S2 = new String("x, y, z");
 		
+		String A = new String("=z");
+		String B = new String("<=2");
+				
 		Scanner scan = new Scanner(System.in);
 		String input;
 		List<String> samples = new ArrayList<String>();
@@ -29,35 +27,43 @@ public class Main {
 		
 		Problem problem1;
 		
+		
+		samples.add(S1);
+		samples.add(S2);
+		
+		events.add(A);
+		events.add(B);
+		
+		formula = "P(A&B)";
 		// ***** All the processes after clicking submit button *****
 		// if add more sample
 		//System.out.println("Choose: (1)Permutation, (2)Combination: ");
 		//flag = scan.nextInt(); 
 		
-		System.out.println("Enter sample 1: ");
-		input = scan.next(); 
-		samples.add(input);
-//		problem1.createObjectSample(input);
+//		System.out.println("Enter sample 1: ");
+//		input = scan.next(); 
+//		samples.add(input);
+////		problem1.createObjectSample(input);
+////		
+//		System.out.println("Enter sample 2: ");
+//		input = scan.next(); 
+//		samples.add(input);
+////		problem1.createObjectSample(input);
+////		
+//		System.out.println("Enter event 1: ");
+//		input = scan.next(); 
+//		events.add(input);
+////		problem1.createObjectEvent(input);
+////		
+//		System.out.println("Enter event 2: ");
+//		input = scan.next(); 
+//		events.add(input);
+////		problem1.createObjectEvent(input);
+////		
+//		System.out.println("Enter formula: ");
+//		formula = scan.next(); 
+////		problem1.createObjectFormula(input);
 //		
-		System.out.println("Enter sample 2: ");
-		input = scan.next(); 
-		samples.add(input);
-//		problem1.createObjectSample(input);
-//		
-		System.out.println("Enter event 1: ");
-		input = scan.next(); 
-		events.add(input);
-//		problem1.createObjectEvent(input);
-//		
-		System.out.println("Enter event 2: ");
-		input = scan.next(); 
-		events.add(input);
-//		problem1.createObjectEvent(input);
-//		
-		System.out.println("Enter formula: ");
-		formula = scan.next(); 
-//		problem1.createObjectFormula(input);
-		
 		problem1 = new Problem(samples, events, formula);
 		System.out.println(problem1.resultString());
 		
@@ -75,32 +81,7 @@ public class Main {
 		//System.out.println("\n\nproblem1.calculations(); ******");
 		//problem1.calculations();
 
-		System.out.println("\n\n***END***");
-//		List<String> S1 = new ArrayList<String>();
-//		List<String> S2 = new ArrayList<String>();
-//		List<String> S3 = new ArrayList<String>();
-//		//List<String> S4 = new ArrayList<String>();
-//		
-//		S1.add("1");
-//		S1.add("2");
-//		S1.add("3");
-//		
-//		S2.add("x");
-//		S2.add("y");
-//		S2.add("z");
-//		
-//		S3.add("+");
-//		S3.add("-");
-//		S3.add("=");
-		
-//		S4.add("a");
-//		S4.add("b");
-//		S4.add("c");
-
-		
-//		String S = "11, 12, 13, 14";
-		
-
+		System.out.println("\n***END***");
 	}
 
 }

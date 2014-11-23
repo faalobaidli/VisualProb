@@ -15,34 +15,24 @@ public class Event {
 	String eventVal;
 	
 	public Event(String input){
-		input = parseObj.parseEvent(input); //System.out.println(input);
+		input = parseObj.parseEvent(input); System.out.println(input);
 		inputtokens = Arrays.asList(input.split(":"));
-		//System.out.println(inputtokens.get(0)+"??????"+inputtokens.get(1));
+		System.out.println(inputtokens.get(0)+""+inputtokens.get(1));
 		operator = inputtokens.get(0);
 		eventVal = inputtokens.get(1);
-		eventListSize = 3;
+		eventListSize = 0;
 		eventProb = 0.0;
 	}
 	
-	public void generateEventSets(List<String> sampleSets){ //System.out.println("#####inputTokens"+inputtokens.get(1));
+	public void generateEventSets(List<String> sampleSets){
 		eventList = listgeneratorObj.generateEventComb(sampleSets, operator, eventVal);
 		eventListSize = eventList.size();
 		int sampleSetSize = sampleSets.size();
 		eventProb = 1.0*eventListSize/sampleSetSize;
-		//System.out.println("EventProb = "+eventProb);
-		//System.out.println("Event List Size: "+eventListSize);
 	}
 	
 	public String getEventStr(){
 		return "Event lists:\n"+eventList.toString()+"\n"+Double.toString(eventProb)+"\n\n";
 	}
-	
-//	public void eventProbability(int sampleSetSize){
-//		System.out.print("eventListSize: "+eventListSize);
-//		System.out.print(" / SampleSetSize: "+sampleSetSize);
-//		
-//		eventProb = 1.0*eventListSize/sampleSetSize;
-//		System.out.print(" = EventProb = "+eventProb);
-//	}
 	
 }
