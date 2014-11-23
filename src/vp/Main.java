@@ -15,7 +15,8 @@ public class Main {
 		String S2 = new String("x, y, z");
 		
 		String A = new String("=z");
-		String B = new String("<=2");
+		String B = new String("=2");
+		String C = new String("=y");
 				
 		Scanner scan = new Scanner(System.in);
 		String input;
@@ -33,8 +34,12 @@ public class Main {
 		
 		events.add(A);
 		events.add(B);
+		events.add(C);
 		
-		formula = "P(A&B)";
+		//formula = "P(A)";
+		//formula = "P(A&B)";
+		formula = "P((A&B)|C))";		
+		
 		// ***** All the processes after clicking submit button *****
 		// if add more sample
 		//System.out.println("Choose: (1)Permutation, (2)Combination: ");

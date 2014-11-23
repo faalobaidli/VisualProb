@@ -182,6 +182,10 @@ public class ListGenerator {
 		   }
 		else if ( formula.pop().equals("(")) { 
 			List<String> leftEvent = expression(formula, formulaSet);  // Read and evaluate first operand.
+			if ( formula.peek().equals(")") ) { 
+				return leftEvent;
+			}
+			
 			char op = formula.pop().charAt(0);             // Read the operator.
 			List<String> rightEvent = expression(formula, formulaSet);
 		

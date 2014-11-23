@@ -59,6 +59,10 @@ public class Parser {
 			   }
 			else if ( formula.pop().equals("(")) {
 				String leftEvent = expression(formula);  // Read and evaluate first operand.
+				if ( formula.peek().equals(")") ) { 
+					return leftEvent;
+				}
+				
 				char op = getOperator(formula.pop().charAt(0));             // Read the operator.
 				String rightEvent = expression(formula);
 			
