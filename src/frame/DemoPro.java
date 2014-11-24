@@ -39,7 +39,7 @@ public class DemoPro extends JFrame implements GInteraction {
 
         JPanel graphicsPanel = new JPanel();
         topLevel.add(buttonPanel, BorderLayout.NORTH);
-
+        
         // Create the graphic canvas
         GWindow window = new GWindow();
         topLevel.add(window.getCanvas(), BorderLayout.CENTER);
@@ -62,24 +62,34 @@ public class DemoPro extends JFrame implements GInteraction {
 
         //create root node
         int rx = 550;
-        int yx = 100;
-        GObject root = new TestObject("/", scene_, rx, yx);
+        int ry = 100;
+        GObject root = new TestObject("/", scene_, rx, ry);
 
         //create and link first level/sample to root
         List<GObject> nodeList = new ArrayList<GObject>();
+        int space = (rx*2)/(p.samples.get(0).inputtokens.size()+1);
+        int start = (p.samples.get(0).inputtokens.size()/2);
         for (int i = 0; i < p.samples.get(0).inputtokens.size(); i++){
-    		nodeList.add(new TestObject(p.samples.get(0).inputtokens.get(i), root, rx+(50*i), yx+100));
+    		nodeList.add(new TestObject(p.samples.get(0).inputtokens.get(i), root, space*(-start+i)+rx, ry+200));
+    		nodeList.get(nodeList.size()-1).getStyle().setBackgroundColor(new Color((float)1,(float) 0.5,(float)1));
+
         }
         
         //create and link the rest to the root
         int pl1sti = 0;
+        int x = 0;
         for (int l = 1; l < p.samples.size(); l++){
-        	pl1sti = nodeList.size()-p.samples.get(l-1).inputtokens.size();
-            for (int pl = pl1sti; pl < pl1sti+p.samples.get(l-1).inputtokens.size(); pl++){
+        	pl1sti = nodeList.size()-p.samples.get(l-1).inputtokens.size()*l;
+        	
+        	space = (rx*2)/(p.samples.get(l-1).inputtokens.size()*p.samples.get(l).inputtokens.size()+1);
+        	start = (p.samples.get(l-1).inputtokens.size()*p.samples.get(l).inputtokens.size()/2);
+        	x = 0;
+        	for (int pl = pl1sti; pl < pl1sti+p.samples.get(l-1).inputtokens.size(); pl++){
             	for (int e = 0; e < p.samples.get(l).inputtokens.size(); e++){
             		
-            		nodeList.add(new TestObject(p.samples.get(l).inputtokens.get(e), nodeList.get(pl), rx+(100*e), yx+100+(100*l)));
-            		
+            		nodeList.add(new TestObject(p.samples.get(l).inputtokens.get(e), nodeList.get(pl), space*(-start+x)+rx, ry+300+(200*l)));
+            		//nodeList.get(nodeList.size()-1).getStyle().setBackgroundColor(new Color((float)1,(float) 0.5,(float)1));
+            		x++;
             	}
             }
         	
