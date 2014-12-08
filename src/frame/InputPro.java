@@ -279,8 +279,8 @@ static  String SampleOutputF_3;
             }
         });
 
-        SampleTextField2.setText("Add sample e.g. 1,2,3,4");
-        SampleTextField2.setForeground(new java.awt.Color(105,105,105) );
+        //SampleTextField2.setText("Add sample e.g. 1,2,3,4");
+        //SampleTextField2.setForeground(new java.awt.Color(105,105,105) );
         SampleTextField2.addMouseListener(new java.awt.event.MouseAdapter() {
             private boolean SampleTextField2Clicked = false;
 
@@ -335,8 +335,8 @@ static  String SampleOutputF_3;
             }
         });
         
-        SampleTextField3.setText("Add sample e.g. 1,2,3,4");
-        SampleTextField3.setForeground(new java.awt.Color(105,105,105) );
+        //SampleTextField3.setText("Add sample e.g. 1,2,3,4");
+        //SampleTextField3.setForeground(new java.awt.Color(105,105,105) );
         SampleTextField3.addMouseListener(new java.awt.event.MouseAdapter() {
             private boolean SampleTextField3Clicked = false;
 
@@ -392,8 +392,8 @@ static  String SampleOutputF_3;
             }
         });
         
-        SampleTextField5.setText("Add sample e.g. 1,2,3,4");
-        SampleTextField5.setForeground(new java.awt.Color(105,105,105) );
+        //SampleTextField5.setText("Add sample e.g. 1,2,3,4");
+        //SampleTextField5.setForeground(new java.awt.Color(105,105,105) );
         SampleTextField5.addMouseListener(new java.awt.event.MouseAdapter() {
             private boolean SampleTextField5Clicked = false;
 
@@ -574,8 +574,7 @@ static  String SampleOutputF_3;
               //  .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        EventTextField1.setText("Add event e.g. <=4 or *,4,*");
-        EventTextField1.setForeground(new java.awt.Color(105,105,105) );
+        //EventTextField1.setForeground(new java.awt.Color(105,105,105) );
         EventTextField1.addMouseListener(new java.awt.event.MouseAdapter() {
             private boolean EventTextField1Clicked = false;
 
@@ -690,8 +689,8 @@ static  String SampleOutputF_3;
             }
         });
 
-        EventTextField2.setText("Add event e.g. <=4 or *,4,*");
-        EventTextField2.setForeground(new java.awt.Color(105,105,105) );
+        //EventTextField2.setText("Add event e.g. <=4 or *,4,*");
+        //EventTextField2.setForeground(new java.awt.Color(105,105,105) );
         EventTextField2.addMouseListener(new java.awt.event.MouseAdapter() {
             private boolean EventTextField2Clicked = false;
 
@@ -807,8 +806,8 @@ static  String SampleOutputF_3;
             }
         });
         
-        EventTextField3.setText("Add event e.g. <=4 or *,4,*");
-        EventTextField3.setForeground(new java.awt.Color(105,105,105) );
+       // EventTextField3.setText("Add event e.g. <=4 or *,4,*");
+        //EventTextField3.setForeground(new java.awt.Color(105,105,105) );
         EventTextField3.addMouseListener(new java.awt.event.MouseAdapter() {
             private boolean EventTextField3Clicked = false;
 

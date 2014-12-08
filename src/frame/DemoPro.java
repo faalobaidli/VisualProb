@@ -77,14 +77,15 @@ public class DemoPro extends JFrame implements GInteraction {
         
         //create and link the rest to the root
         int pl1sti = 0;
-        int x = 0;
+        int plendi = nodeList.size();
+        int x = nodeList.size();
         for (int l = 1; l < p.samples.size(); l++){
-        	pl1sti = nodeList.size()-p.samples.get(l-1).inputtokens.size()*l;
-        	
+        	pl1sti = nodeList.size()-x;
+        	plendi = nodeList.size();
         	space = (rx*2)/(p.samples.get(l-1).inputtokens.size()*p.samples.get(l).inputtokens.size()+1);
         	start = (p.samples.get(l-1).inputtokens.size()*p.samples.get(l).inputtokens.size()/2);
         	x = 0;
-        	for (int pl = pl1sti; pl < pl1sti+p.samples.get(l-1).inputtokens.size(); pl++){
+        	for (int pl = pl1sti; pl < plendi; pl++){
             	for (int e = 0; e < p.samples.get(l).inputtokens.size(); e++){
             		
             		nodeList.add(new TestObject(p.samples.get(l).inputtokens.get(e), nodeList.get(pl), space*(-start+x)+rx, ry+300+(200*l)));
