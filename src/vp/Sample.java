@@ -16,11 +16,19 @@ public class Sample {
 	// Constructor
 	Sample(String input){
 		input= input.trim();
-		//if(input.equalsIgnoreCase("dice"))
-			//for(int i=0; i<6 ;i++)
-				
-		inputtokens.addAll(tokenizer(input));	// Takes the input and add it to the list "inputtokens"
-		samplesize = inputtokens.size();		// Store the size of the sample
+		if(input.equalsIgnoreCase("dice")){
+			inputtokens.addAll(tokenizer("1,2,3,4,5,6"));
+			samplesize=6;
+		}
+		else if(input.equalsIgnoreCase("coin")){
+			inputtokens.addAll(tokenizer("1,2"));
+			samplesize=2;
+		}		
+		else{
+			inputtokens.addAll(tokenizer(input));	// Takes the input and add it to the list "inputtokens"
+			samplesize = inputtokens.size();		// Store the size of the sample
+			
+		}
 	}
 	
 	// Tokenize the sample and split the elements by the comma ','

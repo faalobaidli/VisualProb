@@ -58,7 +58,11 @@ public class Event {
 	}
 	
 	public String getEventStr(){
-		return "Event lists:\n"+eventList.toString()+"\n"+Double.toString(eventProb)+"\n\n";
+		String str="\nEvent lists:\n";
+		for(int i=0 ; i<eventListSize;i++)
+			str += eventList.get(i)+" ; ";
+		
+		return str+"\n"+Double.toString(eventProb)+"\n\n";
 	}
 	
 }

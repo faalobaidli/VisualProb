@@ -14,7 +14,7 @@ public class Problem {
 	List<String> sampleSet = new ArrayList<String>();	// List of String to store the set of the samples (permutations or combinations)
 	ListGenerator listgeneratorObj = new ListGenerator();	// Object of class ListGenerator to generate all the required lists
 	int comb=0;
-	
+	int sampleSetSize;
 //	// Constructor
 //	public Problem(){
 //		iprob++;	// the ID of the program
@@ -43,6 +43,7 @@ public class Problem {
 		
 		eventList();	// To generate the events lists
 		formulaList();	// To generate the formula list
+		resultString();
 	}
 
 	// To generate the permutation set for the sample(s)
@@ -72,13 +73,15 @@ public class Problem {
 	// Return String of all the results
 	public String resultString(){
 		String str;
-		
-		str = "Sample sets:\n"+sampleSet.toString()+"\n\n";
+		sampleSetSize = sampleSet.size();
+		str = "Sample sets:\n";
+		for(int i=0;i<sampleSetSize;i++)
+			str += sampleSet.get(i)+" ; ";
 		for(int i=0;i<iEvent ; i++){
 			str+=(events.get(i).getEventStr());
 		}
 		str+=(formulaObj.getFormulaStr());
-		
+		System.out.println(str);
 		return str;
 	}
 	

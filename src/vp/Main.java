@@ -12,7 +12,7 @@ public class Main {
 		// TODO Auto-generated method stub
 		
 		String S1 = new String("1, 2, 3");
-		String S2 = new String("x, y, z");
+		String S2 = new String("coin");
 		
 		String A = new String("*,2");
 		//String B = new String("=2");
