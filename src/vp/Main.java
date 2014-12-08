@@ -14,7 +14,7 @@ public class Main {
 		String S1 = new String("1, 2, 3");
 		String S2 = new String("x, y, z");
 		
-		String A = new String("=2");
+		String A = new String("*,2");
 		//String B = new String("=2");
 		//String C = new String("=y");
 				

@@ -50,14 +50,15 @@ public class ListGenerator {
 	
 	public void swap(String e, String perm){
 		int s=perm.length();
-		if(s == 0){
-			//e = e.substring(0, e.length()-1);
+		//System.out.println("s="+s);
+		if(s == 0){ //System.out.println("HH"+e);
+			e = e.substring(0, e.length()-1);
 			permut.add(e);
 		}
 		else{
 			for (int i=0; i<s; i++){ //System.out.println("perm="+perm+", i="+i+", s="+s);
 				//System.out.println(e+" +  "+perm.charAt(i)+"  +  "+perm.charAt(i+1)+"  ,  "+ perm.substring(0,i)+"  +  "+perm.substring(i+1,s));
-				swap(e+perm.charAt(i), perm.substring(0,i)+perm.substring(i+1,s));  
+				swap(e+perm.charAt(i)+"," , perm.substring(0,i)+perm.substring(i+1,s));  
 			}
 		}
 	}
