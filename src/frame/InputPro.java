@@ -189,7 +189,7 @@ static  String SampleOutputF_3;
         FormulaButton11 = new JButton();
         
         
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setTitle("prob");
        
          getContentPane().setBackground(Color.black); 
@@ -1754,6 +1754,7 @@ static  String SampleOutputF_3;
 
     private void HelpButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
+    	new HelpInputPro().setVisible(true);
     }                                           
 
     private void FormulaTextFieldActionPerformed(java.awt.event.ActionEvent evt) {                                                 

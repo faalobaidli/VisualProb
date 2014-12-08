@@ -47,9 +47,15 @@ public class DemoPro extends JFrame implements GInteraction {
         // Create scene with default viewport and world extent settings
         scene_ = new GScene(window, "Scene");
 
-        double w0[] = {0.0, 1200.0, 0.0};
-        double w1[] = {1200.0, 1200.0, 0.0};
+//        double w0[] = {0.0, 1200.0, 0.0};
+//        double w1[] = {1200.0, 1200.0, 0.0};
+//        double w2[] = {0.0, 0.0, 0.0};
+
+        double w0[] = {0.0, 2300.0, 0.0};
+        double w1[] = {2300.0, 2300.0, 0.0};
         double w2[] = {0.0, 0.0, 0.0};
+
+        
         scene_.setWorldExtent(w0, w1, w2);
    //  scene_.setWorldExtent(BOLD, BOLD, BOLD, BOLD);
         GStyle style = new GStyle();
@@ -88,7 +94,7 @@ public class DemoPro extends JFrame implements GInteraction {
         	for (int pl = pl1sti; pl < plendi; pl++){
             	for (int e = 0; e < p.samples.get(l).inputtokens.size(); e++){
             		
-            		nodeList.add(new TestObject(p.samples.get(l).inputtokens.get(e), nodeList.get(pl), space*(-start+x)+rx, ry+300+(200*l)));
+            		nodeList.add(new TestObject(p.samples.get(l).inputtokens.get(e), nodeList.get(pl), space*(-start+x)+rx, ry+300+(350*l)));
             		//nodeList.get(nodeList.size()-1).getStyle().setBackgroundColor(new Color((float)1,(float) 0.5,(float)1));
             		x++;
             	}
@@ -110,7 +116,7 @@ public class DemoPro extends JFrame implements GInteraction {
 //        GObject object13 = new TestObject("12", object8, 600.0, 550.0);
 
         pack();
-        setSize(new Dimension(500, 500));
+        setSize(new Dimension(1000, 1000));
         setVisible(true);
 
         window.startInteraction(this);
