@@ -13,7 +13,7 @@ public class Problem {
 	Formula formulaObj;		// Create object of class Formula to store the formula in it
 	List<String> sampleSet = new ArrayList<String>();	// List of String to store the set of the samples (permutations or combinations)
 	ListGenerator listgeneratorObj = new ListGenerator();	// Object of class ListGenerator to generate all the required lists
-	int comb;
+	int comb=0;
 	
 //	// Constructor
 //	public Problem(){
@@ -21,10 +21,11 @@ public class Problem {
 //	}
 
 	// Constructor with all parameters: samples, events, and formula
-	public Problem(List<String> samplesList, List<String> eventsList, String formula, int comb){
-		this.comb = comb;
+	public Problem(List<String> samplesList, List<String> eventsList, String formula){
+		//this.comb = comb;
 		iprob++;	// the ID of the program
 //		flag = 2; // Combination
+		//System.out.println("SamplesListSize: "+samplesList.size());
 		for(int i=0; i<samplesList.size() ; i++){ // To initialize each Sample array element  
 			samples.add(new Sample(samplesList.get(i).trim()));	// Add the input sample to the array of Sample
 			iSample++;		// Increment the size of the samples
@@ -50,7 +51,7 @@ public class Problem {
 	} 
 	
 	// To generate the combination set for the sample(s)
-	public void combination(){ 
+	public void combination(){  System.out.println("Comb: iSample="+iSample);
 		sampleSet = listgeneratorObj.combination(iSample, samples);	// Return the combination set for samples
 	}
 	

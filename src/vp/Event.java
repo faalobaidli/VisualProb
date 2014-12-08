@@ -22,12 +22,17 @@ public class Event {
 	String operator;
 	String eventVal;
 	
+	
+//	String eventPositions;	// e.g. 1, *, 2
+//	int[] position;			// the positions where there's values, not * 
+	
+	
 	public Event(String input){
 		if(input.contains("*")) 
 			star=1; 
 			//input = parseObj.parseStar();
 		else
-			input = parseObj.parseEvent(input); System.out.println(input);
+			input = parseObj.parseEvent(input); //System.out.println(input);
 		
 		inputtokens = Arrays.asList(input.split(":"));
 		//System.out.println(inputtokens.get(0)+""+inputtokens.get(1));
@@ -40,8 +45,9 @@ public class Event {
 	public void generateEventSets(List<String> sampleSets){
 		if(star ==1)
 			eventList = listgeneratorObj.generateEventPerm(sampleSets, inputtokens);
-		else 
+		else { //System.out.println("Generate events");
 			eventList = listgeneratorObj.generateEventComb(sampleSets, operator, eventVal);
+		}
 		eventListSize = eventList.size();
 		int sampleSetSize = sampleSets.size();
 		eventProb = 1.0*eventListSize/sampleSetSize;

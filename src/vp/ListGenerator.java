@@ -62,9 +62,9 @@ public class ListGenerator {
 		return combination(0, iSample, samples);
 	}
 	
-	public List<String> combination(int indexSamples, int iSample, List<Sample> samples){
+	public List<String> combination(int indexSamples, int iSample, List<Sample> samples){ 
 		int size = samples.get(indexSamples).getSize();
-	
+		//System.out.println("Here "+samples.toString());
 		for(int i=0; i<size; i++){
 			samples.get(indexSamples).setIndex(i);
 			if(indexSamples+1 < iSample){				
@@ -78,28 +78,29 @@ public class ListGenerator {
 					oneelement= oneelement+(samples.get(j).inputtokens.get(samples.get(j).getIndex()).toString());
 					
 				}
-				comb.add(oneelement);				
+				comb.add(oneelement);	
+				System.out.println("Sample :"+ oneelement);
 			}
 		}
 		return comb;
 	}
 
 	public List<String> generateEventPerm(List<String> sampleSets, List<String> inputtokens) {
-		String str =""; System.out.println("inputtokens"+inputtokens.get(1));
+		String str =""; //System.out.println("inputtokens"+inputtokens.get(1));
 		List<String> sets = new ArrayList<String>();
 		int inputtokensSize = inputtokens.size();
-		if (inputtokensSize>0){ System.out.println("if (inputtokensSize>0)");
+		if (inputtokensSize>0){ //System.out.println("if (inputtokensSize>0)");
 			for (int j = 0; j < inputtokensSize; j++) {
-				if (!inputtokens.get(j).equals("*")) {System.out.println("if (!inputtokens.get("+j+").equals(\"*\")");
+				if (!inputtokens.get(j).equals("*")) { //System.out.println("if (!inputtokens.get("+j+").equals(\"*\")");
 					str = str + inputtokens.get(j) + ","; 
-				}else{ System.out.println("if (!inputtokens.get("+j+").equals(\"*\")   #### else");
+				}else{ //System.out.println("if (!inputtokens.get("+j+").equals(\"*\")   #### else");
 					str = str + "[^,]+,";
 				}
-			} System.out.println("str"+str);
-			str = str.substring(0, str.length()-1); System.out.println("substring"+str);
+			} //System.out.println("str"+str);
+			str = str.substring(0, str.length()-1); //System.out.println("substring"+str);
 			int sampleSetsSize = sampleSets.size();
-			for(int i=0; i<sampleSetsSize; i++){ System.out.println("for(int i=0; i<sampleSetsSize; i++)");			
-				if(sampleSets.get(i).matches(str)){ System.out.println("if(sampleSets.get(i).matches(str)");
+			for(int i=0; i<sampleSetsSize; i++){ //System.out.println("for(int i=0; i<sampleSetsSize; i++)");			
+				if(sampleSets.get(i).matches(str)){ //System.out.println("if(sampleSets.get(i).matches(str)");
 					sets.add(sampleSets.get(i));
 				}
 			}
@@ -112,11 +113,11 @@ public class ListGenerator {
 	
 	// generate the list (from the combinations) that match the event condition 
 	public List<String> generateEventComb(List<String> sampleSets, String operator, String eventVal){	// if the problem was combination
-
+		//System.out.println("Events");
 		if(operator.equals("=")){ 
 			for(int i=0 ; i<sampleSets.size() ; i++){ //System.out.println(sampleSets.get(i)+"=="+eventVal);
 				if(sampleSets.get(i).contains(eventVal)){
-					eventSet.add(sampleSets.get(i)); //System.out.println("Event list: "+sampleSets.get(i));
+					eventSet.add(sampleSets.get(i)); System.out.println("Event list: "+sampleSets.get(i));
 				}				
 			}
 		}
@@ -124,7 +125,7 @@ public class ListGenerator {
 			for(int i=0 ; i<sampleSets.size() ; i++){
 				for(int j=0; j<sampleSets.get(i).length() ; j++){
 					if((sampleSets.get(i).charAt(j)) <= eventVal.charAt(0)){
-						eventSet.add(sampleSets.get(i)); //System.out.println("Event list: "+sampleSets.get(i));
+						eventSet.add(sampleSets.get(i)); System.out.println("Event list: "+sampleSets.get(i));
 						break;
 					}
 				}
@@ -134,7 +135,7 @@ public class ListGenerator {
 			for(int i=0 ; i<sampleSets.size() ; i++){
 				for(int j=0; j<sampleSets.get(i).length() ; j++){
 					if((sampleSets.get(i).charAt(j)) >= eventVal.charAt(0)){
-						eventSet.add(sampleSets.get(i)); //System.out.println("Event list: "+sampleSets.get(i));
+						eventSet.add(sampleSets.get(i)); System.out.println("Event list: "+sampleSets.get(i));
 						break;
 					}
 				}					
@@ -144,7 +145,7 @@ public class ListGenerator {
 			for(int i=0 ; i<sampleSets.size() ; i++){
 				for(int j=0; j<sampleSets.get(i).length() ; j++){
 					if((sampleSets.get(i).charAt(j)) < eventVal.charAt(0)){
-						eventSet.add(sampleSets.get(i)); //System.out.println("Event list: "+sampleSets.get(i));
+						eventSet.add(sampleSets.get(i)); System.out.println("Event list: "+sampleSets.get(i));
 						break;
 					}
 				}					
@@ -154,7 +155,7 @@ public class ListGenerator {
 			for(int i=0 ; i<sampleSets.size() ; i++){
 				for(int j=0; j<sampleSets.get(i).length() ; j++){
 					if((sampleSets.get(i).charAt(j)) > eventVal.charAt(0)){
-						eventSet.add(sampleSets.get(i));//System.out.println("Event list: "+sampleSets.get(i));
+						eventSet.add(sampleSets.get(i)); System.out.println("Event list: "+sampleSets.get(i));
 						break;
 					}
 				}	

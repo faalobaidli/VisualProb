@@ -14,9 +14,9 @@ public class Main {
 		String S1 = new String("1, 2, 3");
 		String S2 = new String("x, y, z");
 		
-		String A = new String("=z");
-		String B = new String("=2");
-		String C = new String("=y");
+		String A = new String(">2");
+		//String B = new String("=2");
+		//String C = new String("=y");
 				
 		Scanner scan = new Scanner(System.in);
 		String input;
@@ -33,12 +33,12 @@ public class Main {
 		samples.add(S2);
 		
 		events.add(A);
-		events.add(B);
-		events.add(C);
+		//events.add(B);
+		//events.add(C);
 		
-		//formula = "P(A)";
+		formula = "P(A)";
 		//formula = "P(A&B)";
-		formula = "P((A&B)|C))";		
+		//formula = "P((A&B)|C))";		
 		
 		// ***** All the processes after clicking submit button *****
 		// if add more sample

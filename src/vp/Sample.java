@@ -14,7 +14,11 @@ public class Sample {
 	public List<String> inputtokens = new ArrayList<String>();	// To store the input sample, each element as a token
 
 	// Constructor
-	Sample(String input){	
+	Sample(String input){
+		input= input.trim();
+		//if(input.equalsIgnoreCase("dice"))
+			//for(int i=0; i<6 ;i++)
+				
 		inputtokens.addAll(tokenizer(input));	// Takes the input and add it to the list "inputtokens"
 		samplesize = inputtokens.size();		// Store the size of the sample
 	}

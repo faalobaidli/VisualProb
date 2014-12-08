@@ -17,6 +17,8 @@ public class Parser {
 		eventstag.add("A"); eventstag.add("B"); eventstag.add("C"); eventstag.add("D");
 	}
 	
+	
+	
 	public String parseEvent(String txt){ //System.out.println("ParseEvent"+txt);
 		if (txt.startsWith(">=")){return ">="+ ":"+ txt.substring(2).trim();
 		}else if (txt.startsWith("<=")){return "<="+ ":"+ txt.substring(2).trim();
