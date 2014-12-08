@@ -8,6 +8,8 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+import vp.Problem;
+
 import controller.*;
 
 public class ResultPro extends javax.swing.JFrame {
@@ -34,6 +36,9 @@ public class ResultPro extends javax.swing.JFrame {
     static String EditFormulaOutput1;
     int currentInput;
 
+    
+//    Problem p = Controller.getInstance().problem;
+    
     public ResultPro(int x) {
         currentInput = x;
         initComponents();
@@ -103,6 +108,7 @@ public class ResultPro extends javax.swing.JFrame {
         DemoButton.setBackground(new java.awt.Color(80, 80, 80));
         DemoButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         DemoButton.setText("Demo");
+//        if(p.sampleSet > 100 )  then DemoButton.inactive		// restriction for the tree
         DemoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DemoButtonActionPerformed(evt);

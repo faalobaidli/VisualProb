@@ -69,8 +69,8 @@ public class Main {
 //		formula = scan.next(); 
 ////		problem1.createObjectFormula(input);
 //		
-		problem1 = new Problem(samples, events, formula);
-		System.out.println(problem1.resultString());
+		//problem1 = new Problem(samples, events, formula);
+		//System.out.println(problem1.resultString());
 		
 //		if(flag==1)
 //			problem1.permutation();

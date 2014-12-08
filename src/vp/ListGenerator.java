@@ -20,6 +20,10 @@ public class ListGenerator {
 	static Deque<String> formula;
 	List<String> eventstag = new ArrayList<String>();
 	
+	public List<String> permutation(int iSample, List<Sample> samples){
+		return permutation(0, iSample, samples);
+	}
+	
 	public List<String> permutation(int indexSamples, int iSample, List<Sample> samples){
 		int size = samples.get(indexSamples).getSize();
 	
@@ -54,6 +58,10 @@ public class ListGenerator {
 		}
 	}
 	
+	public List<String> combination(int iSample, List<Sample> samples){
+		return combination(0, iSample, samples);
+	}
+	
 	public List<String> combination(int indexSamples, int iSample, List<Sample> samples){
 		int size = samples.get(indexSamples).getSize();
 	
@@ -76,7 +84,7 @@ public class ListGenerator {
 		return comb;
 	}
 
-	public List<String> generateEventSets(List<String> sampleSets, List<String> inputtokens) {
+	public List<String> generateEventPerm(List<String> sampleSets, List<String> inputtokens) {
 		String str =""; System.out.println("inputtokens"+inputtokens.get(1));
 		List<String> sets = new ArrayList<String>();
 		int inputtokensSize = inputtokens.size();

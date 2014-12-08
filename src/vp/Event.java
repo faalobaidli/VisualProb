@@ -3,21 +3,34 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-
+/*
+ * 	Class Event that store all the required fields for each event.
+ * 	Calls the Parser to parse through the event and check its syntax
+ * 	Calls the ListGenerator to generate the event set
+ * 	Calculates the probability of the event
+ */
 public class Event {
-	List<String> inputtokens = new ArrayList<String>();
+	
 	Parser parseObj = new Parser();
 	ListGenerator listgeneratorObj = new ListGenerator();
 	List<String> eventList = new ArrayList<String>();
 	int eventListSize;
 	double eventProb;
+	int star=0;
+	
+	List<String> inputtokens = new ArrayList<String>();
 	String operator;
 	String eventVal;
 	
 	public Event(String input){
-		input = parseObj.parseEvent(input); System.out.println(input);
+		if(input.contains("*")) 
+			star=1; 
+			//input = parseObj.parseStar();
+		else
+			input = parseObj.parseEvent(input); System.out.println(input);
+		
 		inputtokens = Arrays.asList(input.split(":"));
-		System.out.println(inputtokens.get(0)+""+inputtokens.get(1));
+		//System.out.println(inputtokens.get(0)+""+inputtokens.get(1));
 		operator = inputtokens.get(0);
 		eventVal = inputtokens.get(1);
 		eventListSize = 0;
@@ -25,7 +38,10 @@ public class Event {
 	}
 	
 	public void generateEventSets(List<String> sampleSets){
-		eventList = listgeneratorObj.generateEventComb(sampleSets, operator, eventVal);
+		if(star ==1)
+			eventList = listgeneratorObj.generateEventPerm(sampleSets, inputtokens);
+		else 
+			eventList = listgeneratorObj.generateEventComb(sampleSets, operator, eventVal);
 		eventListSize = eventList.size();
 		int sampleSetSize = sampleSets.size();
 		eventProb = 1.0*eventListSize/sampleSetSize;
