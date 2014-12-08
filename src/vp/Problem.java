@@ -48,11 +48,13 @@ public class Problem {
 	// To generate the permutation set for the sample(s)
 	public void permutation(){ 
 		sampleSet = listgeneratorObj.permutation(iSample, samples);  // Return the permutation set for samples
+		System.out.println("Samples perm:\n"+sampleSet.toString());
 	} 
 	
 	// To generate the combination set for the sample(s)
-	public void combination(){  System.out.println("Comb: iSample="+iSample);
+	public void combination(){ 
 		sampleSet = listgeneratorObj.combination(iSample, samples);	// Return the combination set for samples
+		System.out.println("Samples comb:\n"+sampleSet.toString());
 	}
 	
 	// To generate the set of each input event

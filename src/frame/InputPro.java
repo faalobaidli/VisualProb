@@ -1744,7 +1744,7 @@ static  String SampleOutputF_3;
         if (!EventTextField3.getText().isEmpty()){
         	events.add(EventTextField3.getText());
         }
-        System.out.println("##"+events.get(0)+"##");
+        
         Problem p = new Problem(samples, events, formula, comb);
         
         Controller.getInstance().setData(p);

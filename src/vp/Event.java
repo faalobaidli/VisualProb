@@ -28,16 +28,19 @@ public class Event {
 	
 	
 	public Event(String input){
-		if(input.contains("*")) 
+		if(input.contains("*")) {
 			star=1; 
 			//input = parseObj.parseStar();
-		else
+			inputtokens = Arrays.asList(input.split(","));
+		}
+		else{
 			input = parseObj.parseEvent(input); //System.out.println(input);
 		
-		inputtokens = Arrays.asList(input.split(":"));
-		//System.out.println(inputtokens.get(0)+""+inputtokens.get(1));
-		operator = inputtokens.get(0);
-		eventVal = inputtokens.get(1);
+			inputtokens = Arrays.asList(input.split(":"));
+			//System.out.println(inputtokens.get(0)+""+inputtokens.get(1));
+			operator = inputtokens.get(0);
+			eventVal = inputtokens.get(1);
+		}
 		eventListSize = 0;
 		eventProb = 0.0;
 	}
@@ -51,6 +54,7 @@ public class Event {
 		eventListSize = eventList.size();
 		int sampleSetSize = sampleSets.size();
 		eventProb = 1.0*eventListSize/sampleSetSize;
+		System.out.println("Events\n"+eventList.toString());
 	}
 	
 	public String getEventStr(){

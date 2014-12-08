@@ -41,6 +41,7 @@ public class ListGenerator {
 					oneelement= oneelement+(samples.get(j).inputtokens.get(samples.get(j).getIndex()).toString());
 					
 				}
+				//oneelement = oneelement.substring(0, oneelement.length()-1);
 				swap("",oneelement);	
 			}
 		}
@@ -50,11 +51,14 @@ public class ListGenerator {
 	public void swap(String e, String perm){
 		int s=perm.length();
 		if(s == 0){
+			//e = e.substring(0, e.length()-1);
 			permut.add(e);
 		}
 		else{
-			for (int i=0; i<s; i++)
+			for (int i=0; i<s; i++){ //System.out.println("perm="+perm+", i="+i+", s="+s);
+				//System.out.println(e+" +  "+perm.charAt(i)+"  +  "+perm.charAt(i+1)+"  ,  "+ perm.substring(0,i)+"  +  "+perm.substring(i+1,s));
 				swap(e+perm.charAt(i), perm.substring(0,i)+perm.substring(i+1,s));  
+			}
 		}
 	}
 	
@@ -75,18 +79,19 @@ public class ListGenerator {
 	
 				for (int j=0; j<iSample; j++){
 					// store to list
-					oneelement= oneelement+(samples.get(j).inputtokens.get(samples.get(j).getIndex()).toString());
+					oneelement= oneelement+(samples.get(j).inputtokens.get(samples.get(j).getIndex()).toString())+",";
 					
 				}
+				oneelement = oneelement.substring(0, oneelement.length()-1);
 				comb.add(oneelement);	
-				System.out.println("Sample :"+ oneelement);
+				//System.out.println("Sample :"+ oneelement);
 			}
 		}
 		return comb;
 	}
 
 	public List<String> generateEventPerm(List<String> sampleSets, List<String> inputtokens) {
-		String str =""; //System.out.println("inputtokens"+inputtokens.get(1));
+		String str =""; //System.out.println("inputtokens"+inputtokens.get(0));
 		List<String> sets = new ArrayList<String>();
 		int inputtokensSize = inputtokens.size();
 		if (inputtokensSize>0){ //System.out.println("if (inputtokensSize>0)");
@@ -102,6 +107,7 @@ public class ListGenerator {
 			for(int i=0; i<sampleSetsSize; i++){ //System.out.println("for(int i=0; i<sampleSetsSize; i++)");			
 				if(sampleSets.get(i).matches(str)){ //System.out.println("if(sampleSets.get(i).matches(str)");
 					sets.add(sampleSets.get(i));
+					//System.out.println("Event list: "+sampleSets.get(i));
 				}
 			}
 			return sets;
@@ -117,7 +123,7 @@ public class ListGenerator {
 		if(operator.equals("=")){ 
 			for(int i=0 ; i<sampleSets.size() ; i++){ //System.out.println(sampleSets.get(i)+"=="+eventVal);
 				if(sampleSets.get(i).contains(eventVal)){
-					eventSet.add(sampleSets.get(i)); System.out.println("Event list: "+sampleSets.get(i));
+					eventSet.add(sampleSets.get(i)); //System.out.println("Event list: "+sampleSets.get(i));
 				}				
 			}
 		}
@@ -125,7 +131,7 @@ public class ListGenerator {
 			for(int i=0 ; i<sampleSets.size() ; i++){
 				for(int j=0; j<sampleSets.get(i).length() ; j++){
 					if((sampleSets.get(i).charAt(j)) <= eventVal.charAt(0)){
-						eventSet.add(sampleSets.get(i)); System.out.println("Event list: "+sampleSets.get(i));
+						eventSet.add(sampleSets.get(i)); //System.out.println("Event list: "+sampleSets.get(i));
 						break;
 					}
 				}
@@ -135,7 +141,7 @@ public class ListGenerator {
 			for(int i=0 ; i<sampleSets.size() ; i++){
 				for(int j=0; j<sampleSets.get(i).length() ; j++){
 					if((sampleSets.get(i).charAt(j)) >= eventVal.charAt(0)){
-						eventSet.add(sampleSets.get(i)); System.out.println("Event list: "+sampleSets.get(i));
+						eventSet.add(sampleSets.get(i)); //System.out.println("Event list: "+sampleSets.get(i));
 						break;
 					}
 				}					
@@ -145,7 +151,7 @@ public class ListGenerator {
 			for(int i=0 ; i<sampleSets.size() ; i++){
 				for(int j=0; j<sampleSets.get(i).length() ; j++){
 					if((sampleSets.get(i).charAt(j)) < eventVal.charAt(0)){
-						eventSet.add(sampleSets.get(i)); System.out.println("Event list: "+sampleSets.get(i));
+						eventSet.add(sampleSets.get(i)); //System.out.println("Event list: "+sampleSets.get(i));
 						break;
 					}
 				}					
@@ -155,7 +161,7 @@ public class ListGenerator {
 			for(int i=0 ; i<sampleSets.size() ; i++){
 				for(int j=0; j<sampleSets.get(i).length() ; j++){
 					if((sampleSets.get(i).charAt(j)) > eventVal.charAt(0)){
-						eventSet.add(sampleSets.get(i)); System.out.println("Event list: "+sampleSets.get(i));
+						eventSet.add(sampleSets.get(i)); //System.out.println("Event list: "+sampleSets.get(i));
 						break;
 					}
 				}	

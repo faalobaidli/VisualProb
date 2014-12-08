@@ -17,7 +17,9 @@ public class Parser {
 		eventstag.add("A"); eventstag.add("B"); eventstag.add("C"); eventstag.add("D");
 	}
 	
-	
+	public String parseEventStar(String txt){
+		return txt;
+	}
 	
 	public String parseEvent(String txt){ //System.out.println("ParseEvent"+txt);
 		if (txt.startsWith(">=")){return ">="+ ":"+ txt.substring(2).trim();
