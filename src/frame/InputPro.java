@@ -2,10 +2,13 @@ package frame;
 
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.EmptyStackException;
 import java.util.List;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -24,6 +27,9 @@ void setID(int x){
     id = x;
 }
     
+int comb = 0;
+private javax.swing.JRadioButton CombinationButton;
+private javax.swing.JRadioButton PermutationButton;
         int clicked=1;
      int clicked2=1;
  static  String FormulaOutput;
@@ -111,6 +117,10 @@ static  String SampleOutputF_3;
   
                             
     private void initComponents() {
+    	
+    	CombinationButton = new javax.swing.JRadioButton();
+        PermutationButton = new javax.swing.JRadioButton();
+    	
 
         SampleTextField = new JTextField();
         AddSampleButt = new JButton();
@@ -190,7 +200,63 @@ static  String SampleOutputF_3;
                 SampleTextFieldActionPerformed(evt);
             }
         });
+        
+        SampleTextField.setText("Add sample e.g. 1,2,3,4");
+        SampleTextField.setForeground(new java.awt.Color(105,105,105) );
+        SampleTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+            private boolean SampleTextFieldClicked = false;
 
+			public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField1MouseClicked(evt);
+            }
+
+			private void jTextField1MouseClicked(MouseEvent evt) {
+				// TODO Auto-generated method stub
+				if (SampleTextFieldClicked == false){
+					SampleTextFieldClicked = true;
+					SampleTextField.setText("");
+					SampleTextField.setForeground(new java.awt.Color(getDefaultCloseOperation()) );
+				}
+				
+			}
+        });
+
+        
+        CombinationButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        CombinationButton.setForeground(new java.awt.Color(255, 255, 255));
+          CombinationButton.setText("Combination");
+          CombinationButton.doClick();
+          
+          ButtonGroup group = new ButtonGroup();
+          group.add(CombinationButton);
+          group.add(PermutationButton);
+          
+        CombinationButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CombinationButtonActionPerformed(evt);
+            }
+
+              private void CombinationButtonActionPerformed(ActionEvent evt) {
+                 // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                  comb = 0;
+              }
+        });
+
+        PermutationButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        PermutationButton.setForeground(new java.awt.Color(255, 255, 255));
+        PermutationButton.setText("Permutation");
+        PermutationButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PermutationButtonActionPerformed(evt);
+            }
+
+              private void PermutationButtonActionPerformed(ActionEvent evt) {
+                  //hrow new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                                    comb = 1;
+
+              }
+        });
+        
         
          AddSampleButt.setBackground(new java.awt.Color(80, 80, 80));
         AddSampleButt.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -213,6 +279,26 @@ static  String SampleOutputF_3;
             }
         });
 
+        SampleTextField2.setText("Add sample e.g. 1,2,3,4");
+        SampleTextField2.setForeground(new java.awt.Color(105,105,105) );
+        SampleTextField2.addMouseListener(new java.awt.event.MouseAdapter() {
+            private boolean SampleTextField2Clicked = false;
+
+			public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField1MouseClicked(evt);
+            }
+
+			private void jTextField1MouseClicked(MouseEvent evt) {
+				// TODO Auto-generated method stub
+				if (SampleTextField2Clicked == false){
+					SampleTextField2Clicked = true;
+					SampleTextField2.setText("");
+					SampleTextField2.setForeground(new java.awt.Color(getDefaultCloseOperation()) );
+				}
+				
+			}
+        });
+        
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18));
                 
                    jLabel2.setForeground(new java.awt.Color(222, 222, 222));
@@ -248,7 +334,27 @@ static  String SampleOutputF_3;
                 SampleTextField3ActionPerformed(evt);
             }
         });
+        
+        SampleTextField3.setText("Add sample e.g. 1,2,3,4");
+        SampleTextField3.setForeground(new java.awt.Color(105,105,105) );
+        SampleTextField3.addMouseListener(new java.awt.event.MouseAdapter() {
+            private boolean SampleTextField3Clicked = false;
 
+			public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField1MouseClicked(evt);
+            }
+
+			private void jTextField1MouseClicked(MouseEvent evt) {
+				// TODO Auto-generated method stub
+				if (SampleTextField3Clicked == false){
+					SampleTextField3Clicked = true;
+					SampleTextField3.setText("");
+					SampleTextField3.setForeground(new java.awt.Color(getDefaultCloseOperation()) );
+				}
+				
+			}
+        });
+        
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
                 jLabel4.setForeground(new java.awt.Color(222, 222, 222));
            
@@ -284,6 +390,26 @@ static  String SampleOutputF_3;
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SampleTextField5ActionPerformed(evt);
             }
+        });
+        
+        SampleTextField5.setText("Add sample e.g. 1,2,3,4");
+        SampleTextField5.setForeground(new java.awt.Color(105,105,105) );
+        SampleTextField5.addMouseListener(new java.awt.event.MouseAdapter() {
+            private boolean SampleTextField5Clicked = false;
+
+			public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField1MouseClicked(evt);
+            }
+
+			private void jTextField1MouseClicked(MouseEvent evt) {
+				// TODO Auto-generated method stub
+				if (SampleTextField5Clicked == false){
+					SampleTextField5Clicked = true;
+					SampleTextField5.setText("");
+					SampleTextField5.setForeground(new java.awt.Color(getDefaultCloseOperation()) );
+				}
+				
+			}
         });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -381,6 +507,28 @@ static  String SampleOutputF_3;
             }
         });
         
+        EventTextField.setText("Add event e.g. <=4 or *,4,*");
+        EventTextField.setForeground(new java.awt.Color(105,105,105) );
+        EventTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+            private boolean EventTextFieldClicked = false;
+
+			public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField1MouseClicked(evt);
+            }
+
+			private void jTextField1MouseClicked(MouseEvent evt) {
+				// TODO Auto-generated method stub
+				if (EventTextFieldClicked == false){
+					EventTextFieldClicked = true;
+					EventTextField.setText("");
+					EventTextField.setForeground(new java.awt.Color(getDefaultCloseOperation()) );
+				}
+				
+			}
+        });
+        
+     
+        
         EventPanel1Layout.setHorizontalGroup(
             EventPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(EventPanel1Layout.createSequentialGroup()
@@ -426,14 +574,25 @@ static  String SampleOutputF_3;
               //  .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        EventTextField1.setBackground(new java.awt.Color(220, 220, 220));
-        EventTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EventTextField1ActionPerformed(evt);
+        EventTextField1.setText("Add event e.g. <=4 or *,4,*");
+        EventTextField1.setForeground(new java.awt.Color(105,105,105) );
+        EventTextField1.addMouseListener(new java.awt.event.MouseAdapter() {
+            private boolean EventTextField1Clicked = false;
+
+			public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField1MouseClicked(evt);
             }
+
+			private void jTextField1MouseClicked(MouseEvent evt) {
+				// TODO Auto-generated method stub
+				if (EventTextField1Clicked == false){
+					EventTextField1Clicked = true;
+					EventTextField1.setText("");
+					EventTextField1.setForeground(new java.awt.Color(getDefaultCloseOperation()) );
+				}
+				
+			}
         });
-        
-        
 
         EventButton7.setFont(new java.awt.Font("Tahoma", 1, 14)); 
         EventButton7.setText(">");
@@ -531,6 +690,26 @@ static  String SampleOutputF_3;
             }
         });
 
+        EventTextField2.setText("Add event e.g. <=4 or *,4,*");
+        EventTextField2.setForeground(new java.awt.Color(105,105,105) );
+        EventTextField2.addMouseListener(new java.awt.event.MouseAdapter() {
+            private boolean EventTextField2Clicked = false;
+
+			public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField1MouseClicked(evt);
+            }
+
+			private void jTextField1MouseClicked(MouseEvent evt) {
+				// TODO Auto-generated method stub
+				if (EventTextField2Clicked == false){
+					EventTextField2Clicked = true;
+					EventTextField2.setText("");
+					EventTextField2.setForeground(new java.awt.Color(getDefaultCloseOperation()) );
+				}
+				
+			}
+        });
+        
         EventButton13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         EventButton13.setText(">");
         EventButton13.setBackground(new java.awt.Color(80, 80, 80));
@@ -627,6 +806,27 @@ static  String SampleOutputF_3;
                 EventTextField3ActionPerformed(evt);
             }
         });
+        
+        EventTextField3.setText("Add event e.g. <=4 or *,4,*");
+        EventTextField3.setForeground(new java.awt.Color(105,105,105) );
+        EventTextField3.addMouseListener(new java.awt.event.MouseAdapter() {
+            private boolean EventTextField3Clicked = false;
+
+			public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField1MouseClicked(evt);
+            }
+
+			private void jTextField1MouseClicked(MouseEvent evt) {
+				// TODO Auto-generated method stub
+				if (EventTextField3Clicked == false){
+					EventTextField3Clicked = true;
+					EventTextField3.setText("");
+					EventTextField3.setForeground(new java.awt.Color(getDefaultCloseOperation()) );
+				}
+				
+			}
+        });
+        
         EventButton19.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         EventButton19.setText(">");
         EventButton19.setBackground(new java.awt.Color(80, 80, 80));
@@ -758,6 +958,25 @@ static  String SampleOutputF_3;
                 FormulaTextFieldActionPerformed(evt);
             }
         });
+        
+        FormulaTextField.setText("Use buttons to add formula e.g. P(A U B)");
+        FormulaTextField.setForeground(new java.awt.Color(105,105,105) );
+        FormulaTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+            private boolean FormulaTextFieldClicked = false;
+
+			public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField1MouseClicked(evt);
+            }
+
+			private void jTextField1MouseClicked(MouseEvent evt) {
+				// TODO Auto-generated method stub
+				if (FormulaTextFieldClicked  == false){
+					FormulaTextFieldClicked  = true;
+					FormulaTextField.setText("");
+			        FormulaTextField.setForeground(new java.awt.Color(getDefaultCloseOperation()) );
+				}
+			}
+        });
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(222, 222, 222));
@@ -871,6 +1090,7 @@ static  String SampleOutputF_3;
             }
         });
 
+        
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -883,6 +1103,7 @@ static  String SampleOutputF_3;
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addGap(29, 29, 29)
+                                    
                                 .addComponent(SampleTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(AddSampleButt, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -936,6 +1157,12 @@ static  String SampleOutputF_3;
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(NextButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(320, 320, 320))
+                     .addGroup(layout.createSequentialGroup()
+                .addGap(95, 95, 95)
+                .addComponent(CombinationButton)//l
+                .addGap(29, 29, 29)//4
+                .addComponent(PermutationButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -948,6 +1175,10 @@ static  String SampleOutputF_3;
                         .addComponent(EventPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(35, 35, 35)
+                              .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(CombinationButton)
+                            .addComponent(PermutationButton))
+                        .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(AddSampleButt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(SampleTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -992,7 +1223,131 @@ static  String SampleOutputF_3;
         );
 
         pack();
-    }                      
+    }
+        
+        
+//        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+//        getContentPane().setLayout(layout);
+//        layout.setHorizontalGroup(
+//            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+//                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//                    .addGroup(layout.createSequentialGroup()
+//                        .addContainerGap()
+//                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//                            .addGroup(layout.createSequentialGroup()
+//                                .addComponent(jLabel1)
+//                                .addGap(29, 29, 29)
+//                                .addComponent(SampleTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                                .addGap(18, 18, 18)
+//                                .addComponent(AddSampleButt, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+//                            .addGroup(layout.createSequentialGroup()
+//                                .addComponent(jLabel10)
+//                                .addGap(18, 18, 18)
+//                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//                                    .addComponent(FormulaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                                    .addGroup(layout.createSequentialGroup()
+//                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//                                            .addGroup(layout.createSequentialGroup()
+//                                                .addComponent(FormulaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+//                                                .addComponent(Formulautton7, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+//                                                .addComponent(FormulaButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                                                .addGap(18, 18, 18)
+//                                                .addComponent(FormulaButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+//                                            .addGroup(layout.createSequentialGroup()
+//                                                .addComponent(FormulaButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+//                                                .addComponent(FormulaButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+//                                                .addComponent(FormulaButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+//                                                .addComponent(FormulaButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+//                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+//                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//                                            .addGroup(layout.createSequentialGroup()
+//                                                .addComponent(formulaButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                                                .addGap(18, 18, 18)
+//                                                .addComponent(FormulaComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+//                                            .addGroup(layout.createSequentialGroup()
+//                                                .addComponent(FormulaButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+//                                                .addComponent(FormulaButton11))))))
+//                            .addComponent(SamplePanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+//                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+//                        .addComponent(SamplePanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+//                        .addComponent(SamplePanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+//                .addGap(136, 136, 136)
+//                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+//                    .addComponent(EventPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+//                    .addComponent(EventPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+//                    .addComponent(EventPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                    .addComponent(EventPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+//                .addGap(0, 53, Short.MAX_VALUE))
+//            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+//                .addGap(158, 158, 158)
+//                .addComponent(HelpButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+//                .addComponent(NextButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                .addGap(320, 320, 320))
+//        );
+//        layout.setVerticalGroup(
+//            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//            .addGroup(layout.createSequentialGroup()
+//                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//                    .addGroup(layout.createSequentialGroup()
+//                        .addGap(35, 35, 35)
+//                        .addComponent(EventPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+//                        .addComponent(EventPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+//                    .addGroup(layout.createSequentialGroup()
+//                        .addGap(35, 35, 35)
+//                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+//                            .addComponent(AddSampleButt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                            .addComponent(SampleTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+//                        .addGap(41, 41, 41)
+//                        .addComponent(SamplePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                        .addGap(35, 35, 35)
+//                        .addComponent(SamplePanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+//                .addGap(35, 35, 35)
+//                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//                    .addGroup(layout.createSequentialGroup()
+//                        .addComponent(EventPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+//                        .addComponent(EventPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+//                    .addGroup(layout.createSequentialGroup()
+//                        .addComponent(SamplePanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                        .addGap(31, 31, 31)
+//                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+//                            .addComponent(FormulaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                            .addComponent(jLabel10))
+//                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+//                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+//                            .addComponent(FormulaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                            .addComponent(Formulautton7, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                            .addComponent(FormulaButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                            .addComponent(FormulaButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                            .addComponent(formulaButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                            .addComponent(FormulaComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+//                        .addGap(18, 18, 18)
+//                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+//                            .addComponent(FormulaButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                            .addComponent(FormulaButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                            .addComponent(FormulaButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                            .addComponent(FormulaButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                            .addComponent(FormulaButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                            .addComponent(FormulaButton11))))
+//                .addGap(18, 18, 18)
+//                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+//                    .addComponent(HelpButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                    .addComponent(NextButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+//                .addGap(38, 38, 38))
+//        );
+//
+//        pack();
+//    }                      
 
     private void SampleTextFieldActionPerformed(java.awt.event.ActionEvent evt) {                                                
         // TODO add your handling code here:
@@ -1390,8 +1745,8 @@ static  String SampleOutputF_3;
         if (!EventTextField3.getText().isEmpty()){
         	events.add(EventTextField3.getText());
         }
-        
-        Problem p = new Problem(samples, events, formula);
+        System.out.println("##"+events.get(0)+"##");
+        Problem p = new Problem(samples, events, formula, comb);
         
         Controller.getInstance().setData(p);
         

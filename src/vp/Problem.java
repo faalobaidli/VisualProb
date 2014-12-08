@@ -21,7 +21,7 @@ public class Problem {
 //	}
 
 	// Constructor with all parameters: samples, events, and formula
-	public Problem(List<String> samplesList, List<String> eventsList, String formula){
+	public Problem(List<String> samplesList, List<String> eventsList, String formula, int comb){
 		//this.comb = comb;
 		iprob++;	// the ID of the program
 //		flag = 2; // Combination
