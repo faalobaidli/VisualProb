@@ -21,7 +21,7 @@ public class Sample {
 			samplesize=6;
 		}
 		else if(input.equalsIgnoreCase("coin")){
-			inputtokens.addAll(tokenizer("1,2"));
+			inputtokens.addAll(tokenizer("T,H"));
 			samplesize=2;
 		}		
 		else{

@@ -75,9 +75,8 @@ public class Main {
 //		formula = scan.next(); 
 ////		problem1.createObjectFormula(input);
 //		
-		success=true;
 		problem1 = new Problem(samples, events, formula,1);
-		
+		success=true;
 	} catch(IOException e){
 		success=false;
 		System.out.println(e.getMessage());
