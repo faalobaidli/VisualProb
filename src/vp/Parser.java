@@ -1,6 +1,7 @@
 package vp;
 
 import java.util.*;
+import java.io.*;
 
 public class Parser {
 
@@ -21,21 +22,29 @@ public class Parser {
 		return txt;
 	}
 	
-	public String parseEvent(String txt){ //System.out.println("ParseEvent"+txt);
-		if (txt.startsWith(">=")){return ">="+ ":"+ txt.substring(2).trim();
-		}else if (txt.startsWith("<=")){return "<="+ ":"+ txt.substring(2).trim();
-		}else if (txt.startsWith(">")){return ">"+ ":"+ txt.substring(1).trim();
-		}else if (txt.startsWith("<")){return "<"+ ":"+ txt.substring(1).trim();
+	public String parseEvent(String txt) 
+			throws IOException { //System.out.println("ParseEvent"+txt);
+		
+		if (txt.startsWith(">=")){
+			return ">="+ ":"+ txt.substring(2).trim();
+		}else if (txt.startsWith("<=")){
+			return "<="+ ":"+ txt.substring(2).trim();
+		}else if (txt.startsWith(">")){
+			return ">"+ ":"+ txt.substring(1).trim();
+		}else if (txt.startsWith("<")){
+			return "<"+ ":"+ txt.substring(1).trim();
 		}else if (txt.startsWith("=")){ 
 			return "="+ ":"+ txt.substring(1).trim();
 		}else{
-			System.err.print("Unknown operator. Use '>', '<' or '='. Or use comma(s) to specify a set.");
-			System.exit(0);
-			return null;
+			throw new IOException("Unknown operator. Use '>', '<' or '='. Or use comma(s) to specify a set.");
+			//System.err.print("Unknown operator. Use '>', '<' or '='. Or use comma(s) to specify a set.");
+			//System.exit(0);
+			//return null;
 		}		
 	}
 	
-		public String formulaParser(String f){
+		public String formulaParser(String f)
+			throws IOException{
 			for(int i=0 ; i<f.length() ; i++)
 				if(f.charAt(i) != ' ')
 					formula.add(Character.toString(f.charAt(i)));
@@ -46,17 +55,20 @@ public class Parser {
 					String cf = expression(formula);
 					return cf;}
 				else{ 
-					System.err.print("Wrong syntax of the formula: It should start with: P(...");
-					return "";
+					throw new IOException("Wrong syntax of the formula: It should start with: P(...");
+					//System.err.print(;
+					//return "";
 				}			
 			}
 			else{
-				System.err.print("Wrong syntax of the formula: It should start with: P(...");
-				return "";
+				throw new IOException("Wrong syntax of the formula: It should start with: P(...");
+//				System.err.print("Wrong syntax of the formula: It should start with: P(...");
+//				return "";
 			}
 		}
 
-		private String expression(Deque<String> formula){
+		private String expression(Deque<String> formula)
+		throws IOException{
 
 			if ( eventstag.contains(formula.peek())) { 
 				   return formula.pop();
@@ -71,8 +83,10 @@ public class Parser {
 				String rightEvent = expression(formula);
 			
 				if ( !formula.pop().equals(")") ) {   
-					System.err.print("Wrong syntax of the formula: Missing right parenthesis.");
-					return "";
+					throw new IOException("Wrong syntax of the formula: Missing right parenthesis.");
+
+					//System.err.print("Wrong syntax of the formula: Missing right parenthesis.");
+					//return "";
 				}
 			
 				 switch (op) {   //  Apply the operator and return the result. 
@@ -82,23 +96,27 @@ public class Parser {
 			      }
 			}
 			else {
-				System.err.print("Encountered unexpected character.");
-				return "";
+				throw new IOException("Encountered unexpected character.");
+				//System.err.print("Encountered unexpected character.");
+				//return "";
 			}
 		} // end expressionValue()
 		
-		static char getOperator(char op){
+		static char getOperator(char op)
+		throws IOException{
 		   if ( op == '&' || op == '|' ) { 
 		      return op;
 		   }
 		  else if (op == '\n'){
-			  System.err.print("Missing operator at end of line.");
-			  return ' ';
+				throw new IOException("Missing operator at end of line.");
+			  //System.err.print("Missing operator at end of line.");
+			  //return ' ';
 		  }
 		   else{
-			   System.err.print("Missing operator.  Found \"" +
-		            op + "\" instead of &, |.");
-				  return ' ';
+			   throw new IOException("Missing operator.  Found \"" +op + "\" instead of &, |.");
+			   //System.err.print("Missing operator.  Found \"" +
+		           // op + "\" instead of &, |.");
+				 // return ' ';
 		   }
 		} // end getOperator()
 	

@@ -1,5 +1,6 @@
 package vp;
 
+import java.io.IOException;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
@@ -41,8 +42,7 @@ public class ListGenerator {
 					oneelement= oneelement+(samples.get(j).inputtokens.get(samples.get(j).getIndex()).toString());
 					
 				}
-				//oneelement = oneelement.substring(0, oneelement.length()-1);
-				swap("",oneelement);	
+				swap("(",oneelement);	
 			}
 		}
 		return permut;
@@ -50,14 +50,13 @@ public class ListGenerator {
 	
 	public void swap(String e, String perm){
 		int s=perm.length();
-		//System.out.println("s="+s);
-		if(s == 0){ //System.out.println("HH"+e);
+		if(s == 0){
 			e = e.substring(0, e.length()-1);
+			e += ")";
 			permut.add(e);
 		}
 		else{
-			for (int i=0; i<s; i++){ //System.out.println("perm="+perm+", i="+i+", s="+s);
-				//System.out.println(e+" +  "+perm.charAt(i)+"  +  "+perm.charAt(i+1)+"  ,  "+ perm.substring(0,i)+"  +  "+perm.substring(i+1,s));
+			for (int i=0; i<s; i++){ 
 				swap(e+perm.charAt(i)+"," , perm.substring(0,i)+perm.substring(i+1,s));  
 			}
 		}
@@ -69,14 +68,13 @@ public class ListGenerator {
 	
 	public List<String> combination(int indexSamples, int iSample, List<Sample> samples){ 
 		int size = samples.get(indexSamples).getSize();
-		//System.out.println("Here "+samples.toString());
 		for(int i=0; i<size; i++){
 			samples.get(indexSamples).setIndex(i);
 			if(indexSamples+1 < iSample){				
 				combination(indexSamples+1, iSample, samples);
 			}
 			else{
-				oneelement = new String();
+				oneelement = "(";
 	
 				for (int j=0; j<iSample; j++){
 					// store to list
@@ -84,6 +82,7 @@ public class ListGenerator {
 					
 				}
 				oneelement = oneelement.substring(0, oneelement.length()-1);
+				oneelement +=")";
 				comb.add(oneelement);	
 				//System.out.println("Sample :"+ oneelement);
 			}
@@ -103,7 +102,8 @@ public class ListGenerator {
 					str = str + "[^,]+,";
 				}
 			} //System.out.println("str"+str);
-			str = str.substring(0, str.length()-1); //System.out.println("substring"+str);
+			str = str.substring(0, str.length()-1); 
+			str+="[)]"; //System.out.println("substring"+str);
 			int sampleSetsSize = sampleSets.size();
 			for(int i=0; i<sampleSetsSize; i++){ //System.out.println("for(int i=0; i<sampleSetsSize; i++)");			
 				if(sampleSets.get(i).matches(str)){ //System.out.println("if(sampleSets.get(i).matches(str)");
@@ -184,7 +184,8 @@ public class ListGenerator {
 //	}
 
 
-	public List<String> generateFormulaSet(Deque<String> formula, List<Event> events){
+	public List<String> generateFormulaSet(Deque<String> formula, List<Event> events)
+	throws IOException{
 		this.events = events;
 		this.formula = formula;
 		formula = new ArrayDeque<String>();
@@ -192,7 +193,8 @@ public class ListGenerator {
 		return expression(this.formula, formulaSet);
 	}
 	
-	public List<String> expression(Deque<String> formula, List<String> formulaSet){ 
+	public List<String> expression(Deque<String> formula, List<String> formulaSet)
+	throws IOException{ 
 		if ( eventstag.contains(formula.peek())) { 
 			   return events.get(eventstag.indexOf(formula.pop())).eventList;
 		   }
@@ -214,8 +216,9 @@ public class ListGenerator {
 		      }
 		}
 		else {
-			System.err.print("Encountered unexpected character.");
-			return null;
+			throw new IOException("Encountered unexpected character.");
+			//System.err.print("Encountered unexpected character.");
+			//return null;
 		}
 	}
 	

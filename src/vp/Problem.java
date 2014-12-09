@@ -1,12 +1,13 @@
 package vp;
 
 import java.util.*;
+import java.io.*;
 
 public class Problem {
 
-	static int iprob=0;		// for multiple programs, ID for each program
-	static int iSample=0;	// number of samples
-	static int iEvent=0;	// number of events
+	//static int iprob=0;		// for multiple programs, ID for each program
+	static int iSample;	// number of samples
+	static int iEvent;	// number of events
 	
 	public List<Sample> samples = new ArrayList<Sample>(); // Create array of class Sample to store each sample in it
 	public List<Event> events = new ArrayList<Event>();		// Create array of class Event to store each event in it
@@ -15,15 +16,15 @@ public class Problem {
 	ListGenerator listgeneratorObj = new ListGenerator();	// Object of class ListGenerator to generate all the required lists
 	int comb=0;
 	int sampleSetSize;
-//	// Constructor
-//	public Problem(){
-//		iprob++;	// the ID of the program
-//	}
+
 
 	// Constructor with all parameters: samples, events, and formula
-	public Problem(List<String> samplesList, List<String> eventsList, String formula, int comb){
+	public Problem(List<String> samplesList, List<String> eventsList, String formula, int comb)
+	throws IOException{
+		iSample=0;
+		iEvent=0;
 		//this.comb = comb;
-		iprob++;	// the ID of the program
+		//iprob++;	// the ID of the program
 //		flag = 2; // Combination
 		//System.out.println("SamplesListSize: "+samplesList.size());
 		for(int i=0; i<samplesList.size() ; i++){ // To initialize each Sample array element  
@@ -49,13 +50,13 @@ public class Problem {
 	// To generate the permutation set for the sample(s)
 	public void permutation(){ 
 		sampleSet = listgeneratorObj.permutation(iSample, samples);  // Return the permutation set for samples
-		System.out.println("Samples perm:\n"+sampleSet.toString());
+		//System.out.println("Samples perm:\n"+sampleSet.toString());
 	} 
 	
 	// To generate the combination set for the sample(s)
 	public void combination(){ 
 		sampleSet = listgeneratorObj.combination(iSample, samples);	// Return the combination set for samples
-		System.out.println("Samples comb:\n"+sampleSet.toString());
+		//System.out.println("Samples comb:\n"+sampleSet.toString());
 	}
 	
 	// To generate the set of each input event
@@ -66,7 +67,8 @@ public class Problem {
 	}	
 	
 	// To generate the set of input formula
-	public void formulaList(){
+	public void formulaList() 
+		throws IOException{
 		formulaObj.formulaList(events, sampleSet.size());
 	}
 	
@@ -76,7 +78,8 @@ public class Problem {
 		sampleSetSize = sampleSet.size();
 		str = "Sample sets:\n";
 		for(int i=0;i<sampleSetSize;i++)
-			str += sampleSet.get(i)+" ; ";
+			str += sampleSet.get(i)+" , ";
+		str = str.substring(0, str.length()-2);
 		for(int i=0;i<iEvent ; i++){
 			str+=(events.get(i).getEventStr());
 		}

@@ -2,7 +2,8 @@ package vp;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+import java.io.*;
+import java.io.*;
 /*
  * 	Class Event that store all the required fields for each event.
  * 	Calls the Parser to parse through the event and check its syntax
@@ -27,7 +28,8 @@ public class Event {
 //	int[] position;			// the positions where there's values, not * 
 	
 	
-	public Event(String input){
+	public Event(String input)
+	throws IOException{
 		if(input.contains("*")) {
 			star=1; 
 			//input = parseObj.parseStar();
@@ -35,7 +37,7 @@ public class Event {
 		}
 		else{
 			input = parseObj.parseEvent(input); //System.out.println(input);
-		
+
 			inputtokens = Arrays.asList(input.split(":"));
 			//System.out.println(inputtokens.get(0)+""+inputtokens.get(1));
 			operator = inputtokens.get(0);
@@ -54,15 +56,17 @@ public class Event {
 		eventListSize = eventList.size();
 		int sampleSetSize = sampleSets.size();
 		eventProb = 1.0*eventListSize/sampleSetSize;
-		System.out.println("Events\n"+eventList.toString());
+		//System.out.println("Events\n"+eventList.toString());
 	}
 	
 	public String getEventStr(){
-		String str="\nEvent lists:\n";
+		String str="\n\nEvent lists:\n";
 		for(int i=0 ; i<eventListSize;i++)
-			str += eventList.get(i)+" ; ";
+			str += eventList.get(i)+" , ";
 		
-		return str+"\n"+Double.toString(eventProb)+"\n\n";
+		str = str.substring(0, str.length()-2);
+		String prob = String.format("\n%.2f", eventProb);
+		return str+prob+"\n";
 	}
 	
 }

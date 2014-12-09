@@ -1,7 +1,7 @@
 package vp;
 
 import java.util.*;
-
+import java.io.*;
 
 public class Formula {
 	String inputFormula;
@@ -13,7 +13,8 @@ public class Formula {
 	double formulaProb;
 	int formulaListSize;
 	
-	Formula(String s){
+	Formula(String s)
+	throws IOException{
 		
 		inputFormula = s;
 		formulaList = new ArrayList<String>();
@@ -25,7 +26,8 @@ public class Formula {
 		formulaProb=0.0;
 	}
 	
-	public void formulaList(List<Event> events, double sampleSetSize){ //System.out.println("FORMULA: "+formula.peek());
+	public void formulaList(List<Event> events, double sampleSetSize)
+		throws IOException{ //System.out.println("FORMULA: "+formula.peek());
 		formulaList = listgeneratorObj.generateFormulaSet(formula, events);
 		formulaListSize = formulaList.size();
 		formulaProb = formulaListSize/sampleSetSize;
@@ -34,8 +36,10 @@ public class Formula {
 	public String getFormulaStr(){
 		String str = "\nFormula lists:\n";
 		for(int i=0;i<formulaListSize;i++)
-			str += formulaList.get(i)+" ; ";
-		return str+"\n"+Double.toString(formulaProb);
+			str += formulaList.get(i)+" , ";
+		str = str.substring(0, str.length()-2);
+		String prob = String.format("\n%.2f", formulaProb);
+		return str+prob;
 	}
 	
 }
