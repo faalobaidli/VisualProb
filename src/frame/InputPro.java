@@ -5,9 +5,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-import java.util.EmptyStackException;
 import java.util.List;
-
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -20,33 +18,39 @@ import javax.swing.JTextField;
 import controller.*;
 import vp.*;
 
+/**
+ * @author waleed
+ * 
+ * This class ins the GUI form which contains text boxes and necessary buttons for users to input
+ * before it is sent to class Problem for calculation.
+ *
+ */
+@SuppressWarnings("serial")
 public class InputPro extends JFrame {
 
-    int id;
-void setID(int x){
-    id = x;
-}
-    
-int comb = 0;
-private javax.swing.JRadioButton CombinationButton;
-private javax.swing.JRadioButton PermutationButton;
-        int clicked=1;
-     int clicked2=1;
- static  String FormulaOutput;
-static String EventOutputA;
- static   String EventOutputB;
- static String EventOutputC;
- static String EventOutputD;
-static   String SampleOutputF_1;
-  static  String SampleOutputF_2;
-static  String SampleOutputF_3;
- static String SampleOutputF_4;
- 
- 
+	int id;
+    void setID(int x){
+        id = x;
+    }
+        
+    int comb = 0;
+    private javax.swing.JRadioButton CombinationButton;
+    private javax.swing.JRadioButton PermutationButton;
+    int clicked=1;
+    int clicked2=1;
+    static  String FormulaOutput;
+    static String EventOutputA;
+    static   String EventOutputB;
+    static String EventOutputC;
+    static String EventOutputD;
+    static   String SampleOutputF_1;
+    static  String SampleOutputF_2;
+    static  String SampleOutputF_3;
+    static String SampleOutputF_4;
     private JButton AddEventButt;
     private JButton AddSampleButt;
     private JButton EventButton1;
- 
+    
     private JButton EventButton11;
   
     private JButton EventButton13;
@@ -54,7 +58,7 @@ static  String SampleOutputF_3;
     private JButton EventButton15;
 
     private JButton EventButton17;
-  
+    
     private JButton EventButton19;
     private JButton EventButton2;
     private JButton EventButton20;
@@ -108,20 +112,16 @@ static  String SampleOutputF_3;
     private JLabel jLabel7;
     private JLabel jLabel8;
     private JLabel jLabel9;
-    
-    
+
     public InputPro() {
         initComponents();
-       
-    }
+        }
   
                             
     private void initComponents() {
-    	
+
     	CombinationButton = new javax.swing.JRadioButton();
         PermutationButton = new javax.swing.JRadioButton();
-    	
-
         SampleTextField = new JTextField();
         AddSampleButt = new JButton();
         jLabel1 = new JLabel();
@@ -140,9 +140,7 @@ static  String SampleOutputF_3;
         EventButton2 = new JButton();
         EventButton1 = new JButton();
         jLabel6 = new JLabel();
-  
-        EventButton5 = new JButton();
-   
+        EventButton5 = new JButton();  
         AddEventButt = new JButton();
         EventPanel2 = new JPanel();
         EventTextField1 =  new JTextField();
@@ -150,27 +148,21 @@ static  String SampleOutputF_3;
         EventButton8 = new JButton();
         EventButton9 = new JButton();
         jLabel7 = new JLabel();
-   
         EventButton11 = new JButton();
-     
         EventPanel3 = new JPanel();
         EventTextField2 = new JTextField();
         EventButton13 = new JButton();
         EventButton14 = new JButton();
         EventButton15 = new JButton();
         jLabel8 = new JLabel();
-    
         EventButton17 = new JButton();
-      
         EventPanel4 = new JPanel();
         EventTextField3 = new JTextField();
         EventButton19 = new JButton();
         EventButton20 = new JButton();
         EventButton21 = new JButton();
         jLabel9 = new JLabel();
- 
         EventButton23 = new JButton();
-    
         NextButton1 = new JButton();
         HelpButton2 = new JButton();
         FormulaTextField = new JTextField();
@@ -211,7 +203,6 @@ static  String SampleOutputF_3;
             }
 
 			private void jTextField1MouseClicked(MouseEvent evt) {
-				// TODO Auto-generated method stub
 				if (SampleTextFieldClicked == false){
 					SampleTextFieldClicked = true;
 					SampleTextField.setText("");
@@ -222,7 +213,7 @@ static  String SampleOutputF_3;
         });
 
         
-        CombinationButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        CombinationButton.setFont(new java.awt.Font("Tahoma", 1, 12)); 
         CombinationButton.setForeground(new java.awt.Color(255, 255, 255));
           CombinationButton.setText("Combination");
           CombinationButton.doClick();
@@ -237,12 +228,11 @@ static  String SampleOutputF_3;
             }
 
               private void CombinationButtonActionPerformed(ActionEvent evt) {
-                 // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
                   comb = 0;
               }
         });
 
-        PermutationButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        PermutationButton.setFont(new java.awt.Font("Tahoma", 1, 12)); 
         PermutationButton.setForeground(new java.awt.Color(255, 255, 255));
         PermutationButton.setText("Permutation");
         PermutationButton.addActionListener(new java.awt.event.ActionListener() {
@@ -251,7 +241,6 @@ static  String SampleOutputF_3;
             }
 
               private void PermutationButtonActionPerformed(ActionEvent evt) {
-                  //hrow new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
                                     comb = 1;
 
               }
@@ -259,7 +248,7 @@ static  String SampleOutputF_3;
         
         
          AddSampleButt.setBackground(new java.awt.Color(80, 80, 80));
-        AddSampleButt.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        AddSampleButt.setFont(new java.awt.Font("Tahoma", 1, 14)); 
         AddSampleButt.setText("Add+");
         AddSampleButt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -267,7 +256,7 @@ static  String SampleOutputF_3;
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); 
         jLabel1.setForeground(new java.awt.Color(222, 222, 222));
       
         jLabel1.setText("S");
@@ -279,8 +268,6 @@ static  String SampleOutputF_3;
             }
         });
 
-        //SampleTextField2.setText("Add sample e.g. 1,2,3,4");
-        //SampleTextField2.setForeground(new java.awt.Color(105,105,105) );
         SampleTextField2.addMouseListener(new java.awt.event.MouseAdapter() {
             private boolean SampleTextField2Clicked = false;
 
@@ -289,7 +276,6 @@ static  String SampleOutputF_3;
             }
 
 			private void jTextField1MouseClicked(MouseEvent evt) {
-				// TODO Auto-generated method stub
 				if (SampleTextField2Clicked == false){
 					SampleTextField2Clicked = true;
 					SampleTextField2.setText("");
@@ -335,8 +321,6 @@ static  String SampleOutputF_3;
             }
         });
         
-        //SampleTextField3.setText("Add sample e.g. 1,2,3,4");
-        //SampleTextField3.setForeground(new java.awt.Color(105,105,105) );
         SampleTextField3.addMouseListener(new java.awt.event.MouseAdapter() {
             private boolean SampleTextField3Clicked = false;
 
@@ -345,7 +329,6 @@ static  String SampleOutputF_3;
             }
 
 			private void jTextField1MouseClicked(MouseEvent evt) {
-				// TODO Auto-generated method stub
 				if (SampleTextField3Clicked == false){
 					SampleTextField3Clicked = true;
 					SampleTextField3.setText("");
@@ -355,7 +338,7 @@ static  String SampleOutputF_3;
 			}
         });
         
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); 
                 jLabel4.setForeground(new java.awt.Color(222, 222, 222));
            
         jLabel4.setText("S4");
@@ -363,7 +346,6 @@ static  String SampleOutputF_3;
         javax.swing.GroupLayout SamplePanel3Layout = new javax.swing.GroupLayout(SamplePanel3);
         SamplePanel3.setLayout(SamplePanel3Layout);
         
-      //  SamplePanel1.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
       SamplePanel3.setVisible(false);
 
         SamplePanel3.setBackground(Color.black);
@@ -392,8 +374,6 @@ static  String SampleOutputF_3;
             }
         });
         
-        //SampleTextField5.setText("Add sample e.g. 1,2,3,4");
-        //SampleTextField5.setForeground(new java.awt.Color(105,105,105) );
         SampleTextField5.addMouseListener(new java.awt.event.MouseAdapter() {
             private boolean SampleTextField5Clicked = false;
 
@@ -402,7 +382,6 @@ static  String SampleOutputF_3;
             }
 
 			private void jTextField1MouseClicked(MouseEvent evt) {
-				// TODO Auto-generated method stub
 				if (SampleTextField5Clicked == false){
 					SampleTextField5Clicked = true;
 					SampleTextField5.setText("");
@@ -412,7 +391,7 @@ static  String SampleOutputF_3;
 			}
         });
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); 
                   jLabel3.setForeground(new java.awt.Color(222, 222, 222));
 
         jLabel3.setText("S3");
@@ -420,7 +399,6 @@ static  String SampleOutputF_3;
         javax.swing.GroupLayout SamplePanel2Layout = new javax.swing.GroupLayout(SamplePanel2);
         SamplePanel2.setLayout(SamplePanel2Layout);
         
-       // SamplePanel1.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
       SamplePanel2.setVisible(false);
 
         SamplePanel2.setBackground(Color.black);
@@ -452,7 +430,7 @@ static  String SampleOutputF_3;
             }
         });
 
-        EventButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        EventButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); 
         EventButton2.setText("<");
         EventButton2.setBackground(new java.awt.Color(80, 80, 80));
         EventButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -461,7 +439,7 @@ static  String SampleOutputF_3;
             }
         });
 
-        EventButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        EventButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); 
         EventButton1.setText("*");
         EventButton1.setBackground(new java.awt.Color(80, 80, 80));
         EventButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -470,13 +448,13 @@ static  String SampleOutputF_3;
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); 
                 jLabel6.setForeground(Color.white);
 
         jLabel6.setText("A");
 
 
-        EventButton5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        EventButton5.setFont(new java.awt.Font("Tahoma", 1, 14));
         EventButton5.setText(",");
         EventButton5.setBackground(new java.awt.Color(80, 80, 80));
         EventButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -488,7 +466,7 @@ static  String SampleOutputF_3;
 
 
         AddEventButt.setBackground(new java.awt.Color(80, 80, 80));
-        AddEventButt.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        AddEventButt.setFont(new java.awt.Font("Tahoma", 1, 14)); 
         AddEventButt.setText("Add +");
         AddEventButt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -517,7 +495,6 @@ static  String SampleOutputF_3;
             }
 
 			private void jTextField1MouseClicked(MouseEvent evt) {
-				// TODO Auto-generated method stub
 				if (EventTextFieldClicked == false){
 					EventTextFieldClicked = true;
 					EventTextField.setText("");
@@ -526,8 +503,6 @@ static  String SampleOutputF_3;
 				
 			}
         });
-        
-     
         
         EventPanel1Layout.setHorizontalGroup(
             EventPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -550,9 +525,7 @@ static  String SampleOutputF_3;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(EventButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                       // .addComponent(EventButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        //.addComponent(EventButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         EventPanel1Layout.setVerticalGroup(
@@ -565,16 +538,12 @@ static  String SampleOutputF_3;
                     .addComponent(AddEventButt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(13, 13, 13)
                 .addGroup(EventPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
-                  //  .addComponent(EventButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
                     .addComponent(EventButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(EventButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(EventButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(EventButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                   // .addComponent(EventButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-              //  .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        //EventTextField1.setForeground(new java.awt.Color(105,105,105) );
         EventTextField1.addMouseListener(new java.awt.event.MouseAdapter() {
             private boolean EventTextField1Clicked = false;
 
@@ -582,8 +551,8 @@ static  String SampleOutputF_3;
                 jTextField1MouseClicked(evt);
             }
 
+			//set default text to text field in light-gray and hide when clicked once 
 			private void jTextField1MouseClicked(MouseEvent evt) {
-				// TODO Auto-generated method stub
 				if (EventTextField1Clicked == false){
 					EventTextField1Clicked = true;
 					EventTextField1.setText("");
@@ -602,7 +571,7 @@ static  String SampleOutputF_3;
             }
         });
 
-        EventButton8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        EventButton8.setFont(new java.awt.Font("Tahoma", 1, 14)); 
         EventButton8.setText("<");
         EventButton8.setBackground(new java.awt.Color(80, 80, 80));
         EventButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -611,7 +580,7 @@ static  String SampleOutputF_3;
             }
         });
 
-        EventButton9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        EventButton9.setFont(new java.awt.Font("Tahoma", 1, 14)); 
         EventButton9.setText("*");
         EventButton9.setBackground(new java.awt.Color(80, 80, 80));
         EventButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -620,14 +589,14 @@ static  String SampleOutputF_3;
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); 
                 jLabel7.setForeground(Color.white);
 
         jLabel7.setText("B");
 
 
 
-        EventButton11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        EventButton11.setFont(new java.awt.Font("Tahoma", 1, 14)); 
         EventButton11.setText(",");
         EventButton11.setBackground(new java.awt.Color(80, 80, 80));
         EventButton11.addActionListener(new java.awt.event.ActionListener() {
@@ -635,7 +604,6 @@ static  String SampleOutputF_3;
                 EventButton11ActionPerformed(evt);
             }
         });
-
 
         javax.swing.GroupLayout EventPanel2Layout = new javax.swing.GroupLayout(EventPanel2);
         EventPanel2.setLayout(EventPanel2Layout);
@@ -689,8 +657,7 @@ static  String SampleOutputF_3;
             }
         });
 
-        //EventTextField2.setText("Add event e.g. <=4 or *,4,*");
-        //EventTextField2.setForeground(new java.awt.Color(105,105,105) );
+       
         EventTextField2.addMouseListener(new java.awt.event.MouseAdapter() {
             private boolean EventTextField2Clicked = false;
 
@@ -699,7 +666,6 @@ static  String SampleOutputF_3;
             }
 
 			private void jTextField1MouseClicked(MouseEvent evt) {
-				// TODO Auto-generated method stub
 				if (EventTextField2Clicked == false){
 					EventTextField2Clicked = true;
 					EventTextField2.setText("");
@@ -709,7 +675,7 @@ static  String SampleOutputF_3;
 			}
         });
         
-        EventButton13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        EventButton13.setFont(new java.awt.Font("Tahoma", 1, 14)); 
         EventButton13.setText(">");
         EventButton13.setBackground(new java.awt.Color(80, 80, 80));
         EventButton13.addActionListener(new java.awt.event.ActionListener() {
@@ -718,7 +684,7 @@ static  String SampleOutputF_3;
             }
         });
 
-        EventButton14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        EventButton14.setFont(new java.awt.Font("Tahoma", 1, 14)); 
         EventButton14.setText("<");
         EventButton14.setBackground(new java.awt.Color(80, 80, 80));
         EventButton14.addActionListener(new java.awt.event.ActionListener() {
@@ -727,7 +693,7 @@ static  String SampleOutputF_3;
             }
         });
 
-        EventButton15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        EventButton15.setFont(new java.awt.Font("Tahoma", 1, 14)); 
         EventButton15.setText("*");
         EventButton15.setBackground(new java.awt.Color(80, 80, 80));
         EventButton15.addActionListener(new java.awt.event.ActionListener() {
@@ -736,13 +702,13 @@ static  String SampleOutputF_3;
             }
         });
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); 
                 jLabel8.setForeground(Color.white);
 
         jLabel8.setText("C");
 
 
-        EventButton17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        EventButton17.setFont(new java.awt.Font("Tahoma", 1, 14)); 
         EventButton17.setText(",");
         EventButton17.setBackground(new java.awt.Color(80, 80, 80));
         EventButton17.addActionListener(new java.awt.event.ActionListener() {
@@ -750,8 +716,6 @@ static  String SampleOutputF_3;
                 EventButton17ActionPerformed(evt);
             }
         });
-
-
 
         javax.swing.GroupLayout EventPanel3Layout = new javax.swing.GroupLayout(EventPanel3);
         EventPanel3.setLayout(EventPanel3Layout);
@@ -776,9 +740,7 @@ static  String SampleOutputF_3;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(EventButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                      //  .addComponent(EventButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                       // .addComponent(EventButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         EventPanel3Layout.setVerticalGroup(
@@ -790,12 +752,10 @@ static  String SampleOutputF_3;
                     .addComponent(jLabel8))
                 .addGap(13, 13, 13)
                 .addGroup(EventPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
-                   // .addComponent(EventButton16, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
                     .addComponent(EventButton13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(EventButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(EventButton15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(EventButton17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                 //   .addComponent(EventButton18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -806,8 +766,6 @@ static  String SampleOutputF_3;
             }
         });
         
-       // EventTextField3.setText("Add event e.g. <=4 or *,4,*");
-        //EventTextField3.setForeground(new java.awt.Color(105,105,105) );
         EventTextField3.addMouseListener(new java.awt.event.MouseAdapter() {
             private boolean EventTextField3Clicked = false;
 
@@ -816,7 +774,6 @@ static  String SampleOutputF_3;
             }
 
 			private void jTextField1MouseClicked(MouseEvent evt) {
-				// TODO Auto-generated method stub
 				if (EventTextField3Clicked == false){
 					EventTextField3Clicked = true;
 					EventTextField3.setText("");
@@ -826,7 +783,7 @@ static  String SampleOutputF_3;
 			}
         });
         
-        EventButton19.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        EventButton19.setFont(new java.awt.Font("Tahoma", 1, 14)); 
         EventButton19.setText(">");
         EventButton19.setBackground(new java.awt.Color(80, 80, 80));
         EventButton19.addActionListener(new java.awt.event.ActionListener() {
@@ -835,7 +792,7 @@ static  String SampleOutputF_3;
             }
         });
 
-        EventButton20.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        EventButton20.setFont(new java.awt.Font("Tahoma", 1, 14)); 
         EventButton20.setText("<");
         EventButton20.setBackground(new java.awt.Color(80, 80, 80));
         EventButton20.addActionListener(new java.awt.event.ActionListener() {
@@ -844,7 +801,7 @@ static  String SampleOutputF_3;
             }
         });
 
-        EventButton21.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        EventButton21.setFont(new java.awt.Font("Tahoma", 1, 14)); 
         EventButton21.setText("*");
         EventButton21.setBackground(new java.awt.Color(80, 80, 80));
         EventButton21.addActionListener(new java.awt.event.ActionListener() {
@@ -853,21 +810,12 @@ static  String SampleOutputF_3;
             }
         });
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); 
                 jLabel9.setForeground(new java.awt.Color(222, 222, 222));
 
         jLabel9.setText("C");
 
-//        EventButton22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-//        EventButton22.setText("fff");
-//        EventButton22.setBackground(new java.awt.Color(255, 255, 255));
-//        EventButton22.addActionListener(new java.awt.event.ActionListener() {
-//            public void actionPerformed(java.awt.event.ActionEvent evt) {
-//                EventButton22ActionPerformed(evt);
-//            }
-//        });
-
-        EventButton23.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        EventButton23.setFont(new java.awt.Font("Tahoma", 1, 14)); 
         EventButton23.setText(",");
         EventButton23.setBackground(new java.awt.Color(80, 80, 80));
         EventButton23.addActionListener(new java.awt.event.ActionListener() {
@@ -875,15 +823,6 @@ static  String SampleOutputF_3;
                 EventButton23ActionPerformed(evt);
             }
         });
-
-//        EventButton24.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-//        EventButton24.setText("&");
-//        EventButton24.setBackground(new java.awt.Color(80, 80, 80));
-//        EventButton24.addActionListener(new java.awt.event.ActionListener() {
-//            public void actionPerformed(java.awt.event.ActionEvent evt) {
-//                EventButton24ActionPerformed(evt);
-//            }
-//        });
 
         javax.swing.GroupLayout EventPanel4Layout = new javax.swing.GroupLayout(EventPanel4);
         EventPanel4.setLayout(EventPanel4Layout);
@@ -908,9 +847,7 @@ static  String SampleOutputF_3;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(EventButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    //    .addComponent(EventButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                       // .addComponent(EventButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(124, Short.MAX_VALUE))
         );
         EventPanel4Layout.setVerticalGroup(
@@ -922,16 +859,14 @@ static  String SampleOutputF_3;
                     .addComponent(jLabel9))
                 .addGap(13, 13, 13)
                 .addGroup(EventPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
-                   // .addComponent(EventButton22, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
                     .addComponent(EventButton19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(EventButton20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(EventButton21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(EventButton23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                   // .addComponent(EventButton24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
-        NextButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        NextButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); 
         NextButton1.setText("Next");
         NextButton1.setBackground(new java.awt.Color(80, 80, 80));
         NextButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -940,7 +875,7 @@ static  String SampleOutputF_3;
             }
         });
 
-        HelpButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        HelpButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); 
         HelpButton2.setText("Help");
         HelpButton2.setBackground(new java.awt.Color(80, 80, 80));
         HelpButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -968,7 +903,6 @@ static  String SampleOutputF_3;
             }
 
 			private void jTextField1MouseClicked(MouseEvent evt) {
-				// TODO Auto-generated method stub
 				if (FormulaTextFieldClicked  == false){
 					FormulaTextFieldClicked  = true;
 					FormulaTextField.setText("");
@@ -977,7 +911,7 @@ static  String SampleOutputF_3;
 			}
         });
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); 
         jLabel10.setForeground(new java.awt.Color(222, 222, 222));
         jLabel10.setText("F");
 
@@ -998,7 +932,7 @@ static  String SampleOutputF_3;
             }
         });
 
-        Formulautton7.setText(",");
+        Formulautton7.setText("(");
         
         Formulautton7.setBackground(new java.awt.Color(80, 80, 80));
         Formulautton7.addActionListener(new java.awt.event.ActionListener() {
@@ -1007,7 +941,7 @@ static  String SampleOutputF_3;
             }
         });
 
-        FormulaButton2.setText("(");
+        FormulaButton2.setText(")");
         
         FormulaButton2.setBackground(new java.awt.Color(80, 80, 80));
         FormulaButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -1016,7 +950,7 @@ static  String SampleOutputF_3;
             }
         });
 
-        FormulaButton1.setText(")");
+        FormulaButton1.setText("∩");
         
         FormulaButton1.setBackground(new java.awt.Color(80, 80, 80));
         FormulaButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -1025,7 +959,7 @@ static  String SampleOutputF_3;
             }
         });
 
-        formulaButton3.setText("+");
+        formulaButton3.setText("∪");
         
         formulaButton3.setBackground(new java.awt.Color(80, 80, 80));
         formulaButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -1043,7 +977,7 @@ static  String SampleOutputF_3;
             }
         });
 
-        FormulaButton10.setText("∩");
+        FormulaButton10.setText("x");
         
         FormulaButton10.setBackground(new java.awt.Color(80, 80, 80));
         FormulaButton10.addActionListener(new java.awt.event.ActionListener() {
@@ -1061,7 +995,7 @@ static  String SampleOutputF_3;
             }
         });
 
-        FormulaButton9.setText("∪");
+        FormulaButton9.setText("x");
         
         FormulaButton9.setBackground(new java.awt.Color(80, 80, 80));
         FormulaButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -1122,23 +1056,20 @@ static  String SampleOutputF_3;
                                                 .addGap(18, 18, 18)
                                                 .addComponent(FormulaButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(FormulaButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(FormulaButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(FormulaButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(FormulaButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                ))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(formulaButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(18, 18, 18)
-                                                .addComponent(FormulaComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(FormulaComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(FormulaButton11))
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(FormulaButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(FormulaButton11))))))
+                                                )))))
                             .addComponent(SamplePanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(SamplePanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1158,8 +1089,8 @@ static  String SampleOutputF_3;
                 .addGap(320, 320, 320))
                      .addGroup(layout.createSequentialGroup()
                 .addGap(95, 95, 95)
-                .addComponent(CombinationButton)//l
-                .addGap(29, 29, 29)//4
+                .addComponent(CombinationButton)
+                .addGap(29, 29, 29)
                 .addComponent(PermutationButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1205,15 +1136,11 @@ static  String SampleOutputF_3;
                             .addComponent(FormulaButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(FormulaButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(formulaButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(FormulaComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(FormulaComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(FormulaButton11))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(FormulaButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(FormulaButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(FormulaButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(FormulaButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(FormulaButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(FormulaButton11))))
+                      )))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(HelpButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1223,142 +1150,19 @@ static  String SampleOutputF_3;
 
         pack();
     }
+
         
-        
-//        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-//        getContentPane().setLayout(layout);
-//        layout.setHorizontalGroup(
-//            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-//            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-//                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-//                    .addGroup(layout.createSequentialGroup()
-//                        .addContainerGap()
-//                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-//                            .addGroup(layout.createSequentialGroup()
-//                                .addComponent(jLabel1)
-//                                .addGap(29, 29, 29)
-//                                .addComponent(SampleTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                                .addGap(18, 18, 18)
-//                                .addComponent(AddSampleButt, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-//                            .addGroup(layout.createSequentialGroup()
-//                                .addComponent(jLabel10)
-//                                .addGap(18, 18, 18)
-//                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-//                                    .addComponent(FormulaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                                    .addGroup(layout.createSequentialGroup()
-//                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-//                                            .addGroup(layout.createSequentialGroup()
-//                                                .addComponent(FormulaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-//                                                .addComponent(Formulautton7, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-//                                                .addComponent(FormulaButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                                                .addGap(18, 18, 18)
-//                                                .addComponent(FormulaButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-//                                            .addGroup(layout.createSequentialGroup()
-//                                                .addComponent(FormulaButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-//                                                .addComponent(FormulaButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-//                                                .addComponent(FormulaButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-//                                                .addComponent(FormulaButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
-//                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-//                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-//                                            .addGroup(layout.createSequentialGroup()
-//                                                .addComponent(formulaButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                                                .addGap(18, 18, 18)
-//                                                .addComponent(FormulaComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-//                                            .addGroup(layout.createSequentialGroup()
-//                                                .addComponent(FormulaButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-//                                                .addComponent(FormulaButton11))))))
-//                            .addComponent(SamplePanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-//                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-//                        .addComponent(SamplePanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-//                        .addComponent(SamplePanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-//                .addGap(136, 136, 136)
-//                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-//                    .addComponent(EventPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-//                    .addComponent(EventPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-//                    .addComponent(EventPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                    .addComponent(EventPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-//                .addGap(0, 53, Short.MAX_VALUE))
-//            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-//                .addGap(158, 158, 158)
-//                .addComponent(HelpButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-//                .addComponent(NextButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                .addGap(320, 320, 320))
-//        );
-//        layout.setVerticalGroup(
-//            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-//            .addGroup(layout.createSequentialGroup()
-//                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-//                    .addGroup(layout.createSequentialGroup()
-//                        .addGap(35, 35, 35)
-//                        .addComponent(EventPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-//                        .addComponent(EventPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-//                    .addGroup(layout.createSequentialGroup()
-//                        .addGap(35, 35, 35)
-//                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-//                            .addComponent(AddSampleButt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                            .addComponent(SampleTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-//                        .addGap(41, 41, 41)
-//                        .addComponent(SamplePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                        .addGap(35, 35, 35)
-//                        .addComponent(SamplePanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-//                .addGap(35, 35, 35)
-//                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-//                    .addGroup(layout.createSequentialGroup()
-//                        .addComponent(EventPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-//                        .addComponent(EventPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-//                    .addGroup(layout.createSequentialGroup()
-//                        .addComponent(SamplePanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                        .addGap(31, 31, 31)
-//                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-//                            .addComponent(FormulaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                            .addComponent(jLabel10))
-//                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-//                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-//                            .addComponent(FormulaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                            .addComponent(Formulautton7, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                            .addComponent(FormulaButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                            .addComponent(FormulaButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                            .addComponent(formulaButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                            .addComponent(FormulaComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-//                        .addGap(18, 18, 18)
-//                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-//                            .addComponent(FormulaButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                            .addComponent(FormulaButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                            .addComponent(FormulaButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                            .addComponent(FormulaButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                            .addComponent(FormulaButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                            .addComponent(FormulaButton11))))
-//                .addGap(18, 18, 18)
-//                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-//                    .addComponent(HelpButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                    .addComponent(NextButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-//                .addGap(38, 38, 38))
-//        );
-//
-//        pack();
-//    }                      
+             
 
     private void SampleTextFieldActionPerformed(java.awt.event.ActionEvent evt) {                                                
-        // TODO add your handling code here:
     }                                               
 
     private void FormulaButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                               
 
-        FormulaOutput = FormulaTextField.getText() + ")";
+        FormulaOutput = FormulaTextField.getText() + "&";
         System.out.println(FormulaOutput);
         FormulaTextField.setText(FormulaOutput);
 
-        // TODO add your handling code here:
     }                                              
 
     private void AddEventButtActionPerformed(java.awt.event.ActionEvent evt) {                                             
@@ -1368,8 +1172,7 @@ static  String SampleOutputF_3;
   System.out.println(clicked2);
     if (clicked2 == 2){
         EventPanel2.setVisible(true);
-  //  frame.pack() 
-            pack();
+              pack();
             
     }
     else if (clicked2==3){
@@ -1401,16 +1204,6 @@ static  String SampleOutputF_3;
         SamplePanel3.setVisible(true);
         pack();
     }
-       
-
-
-
-
-
-
-
-
-
     }                                             
 
     private void FormulaButtonActionPerformed(java.awt.event.ActionEvent evt) {                                              
@@ -1423,7 +1216,7 @@ static  String SampleOutputF_3;
 
     private void FormulaButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                               
 
-        FormulaOutput = FormulaTextField.getText() + "(";
+        FormulaOutput = FormulaTextField.getText() + ")";
         System.out.println(FormulaOutput);
         FormulaTextField.setText(FormulaOutput);
 
@@ -1431,7 +1224,7 @@ static  String SampleOutputF_3;
 
     private void formulaButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                               
 
-        FormulaOutput = FormulaTextField.getText() + "+";
+        FormulaOutput = FormulaTextField.getText() + "|";
         System.out.println(FormulaOutput);
         FormulaTextField.setText(FormulaOutput);
 
@@ -1478,7 +1271,7 @@ static  String SampleOutputF_3;
 
     private void Formulautton7ActionPerformed(java.awt.event.ActionEvent evt) {                                              
 
-        FormulaOutput = FormulaTextField.getText() + ",";
+        FormulaOutput = FormulaTextField.getText() + "(";
         System.out.println(FormulaOutput);
         FormulaTextField.setText(FormulaOutput);
 
@@ -1503,15 +1296,12 @@ static  String SampleOutputF_3;
     }                                              
 
     private void SampleTextField3ActionPerformed(java.awt.event.ActionEvent evt) {                                                 
-        // TODO add your handling code here:
     }                                                
 
     private void SampleTextField5ActionPerformed(java.awt.event.ActionEvent evt) {                                                 
-        // TODO add your handling code here:
     }                                                
 
     private void SampleTextField2ActionPerformed(java.awt.event.ActionEvent evt) {                                                 
-        // TODO add your handling code here:
     }                                                
 
     private void EventButton5ActionPerformed(java.awt.event.ActionEvent evt) {                                             
@@ -1637,7 +1427,6 @@ static  String SampleOutputF_3;
         EventOutputD = EventTextField3.getText() + "<";
         System.out.println(EventOutputD);
         EventTextField3.setText(EventOutputD);
-// TODO add your handling code here:
     }                                             
 
     private void EventButton19ActionPerformed(java.awt.event.ActionEvent evt) {                                              
@@ -1651,15 +1440,12 @@ static  String SampleOutputF_3;
                                             
 
     private void EventTextField1ActionPerformed(java.awt.event.ActionEvent evt) {                                                
-        // TODO add your handling code here:
     }                                               
 
     private void EventTextField2ActionPerformed(java.awt.event.ActionEvent evt) {                                                
-        // TODO add your handling code here:
     }                                               
 
     private void EventTextField3ActionPerformed(java.awt.event.ActionEvent evt) {                                                
-        // TODO add your handling code here:
     }                                               
 
     private void NextButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                            
@@ -1671,13 +1457,7 @@ static  String SampleOutputF_3;
         if (SampleTextField.getText().isEmpty() && FormulaTextField.getText().isEmpty() && EventTextField.getText().isEmpty()) {
 
             JOptionPane.showMessageDialog(new JFrame(), message, "Erorrs", JOptionPane.ERROR_MESSAGE);
-          //  JOptionPane.showMessageDialog(new JFrame(), "Please add your sample space  ", "Erorrs", JOptionPane.ERROR_MESSAGE);
-            
-            
-            
-            
-
-        } 
+              } 
         
         else if (SampleTextField.getText().isEmpty()){
         
@@ -1699,66 +1479,67 @@ static  String SampleOutputF_3;
         
         
         else if (!SampleTextField.getText().isEmpty() && !FormulaTextField.getText().isEmpty() && !EventTextField.getText().isEmpty()) {
-      // new DEMO();
          new   ResultPro(id).setVisible(true);
-       //  new InputPro().setVisible(false);
-         //id++;
          setVisible(false);
-           
-          //  JOptionPane.showMessageDialog(new JFrame(), "Please add your sample space  ", "Erorrs", JOptionPane.ERROR_MESSAGE);
-            
-
+    
         } else {
              JOptionPane.showMessageDialog(new JFrame(), message, "Erorrs", JOptionPane.ERROR_MESSAGE);
      
 
         }
       
+        boolean success = false;
         
-        String formula = FormulaTextField.getText();
-        
-        List<String> samples = new ArrayList();
-        if (!SampleTextField.getText().isEmpty()){
-        	samples.add(SampleTextField.getText());
+        while(!success){
+        try{
+        	String formula = FormulaTextField.getText();
+            
+            List<String> samples = new ArrayList<String>();
+            if (!SampleTextField.getText().isEmpty()){
+            	samples.add(SampleTextField.getText());
+            }
+            if (!SampleTextField2.getText().isEmpty()){
+            	samples.add(SampleTextField2.getText());
+            }
+            if (!SampleTextField5.getText().isEmpty()){
+            	samples.add(SampleTextField5.getText());
+            }
+            if (!SampleTextField3.getText().isEmpty()){
+            	samples.add(SampleTextField3.getText());
+            }
+            
+            List<String> events = new ArrayList<String>();
+            if (!EventTextField.getText().isEmpty()){
+            	events.add(EventTextField.getText());
+            }
+            if (!EventTextField1.getText().isEmpty()){
+            	events.add(EventTextField1.getText());
+            }
+            if (!EventTextField2.getText().isEmpty()){
+            	events.add(EventTextField2.getText());
+            }
+            if (!EventTextField3.getText().isEmpty()){
+            	events.add(EventTextField3.getText());
+            }
+            
+            Problem p = new Problem(samples, events, formula, comb);
+            
+            Controller.getInstance().setData(p);
+        	success = true;
+        }catch(Exception e){
+        	success=false;
+        	System.out.println(e.getMessage());
         }
-        if (!SampleTextField2.getText().isEmpty()){
-        	samples.add(SampleTextField2.getText());
         }
-        if (!SampleTextField5.getText().isEmpty()){
-        	samples.add(SampleTextField5.getText());
-        }
-        if (!SampleTextField3.getText().isEmpty()){
-        	samples.add(SampleTextField3.getText());
-        }
-        
-        List<String> events = new ArrayList();
-        if (!EventTextField.getText().isEmpty()){
-        	events.add(EventTextField.getText());
-        }
-        if (!EventTextField1.getText().isEmpty()){
-        	events.add(EventTextField1.getText());
-        }
-        if (!EventTextField2.getText().isEmpty()){
-        	events.add(EventTextField2.getText());
-        }
-        if (!EventTextField3.getText().isEmpty()){
-        	events.add(EventTextField3.getText());
-        }
-        
-        Problem p = new Problem(samples, events, formula, comb);
-        
-        Controller.getInstance().setData(p);
         
 
     }                                           
 
     private void HelpButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
     	new HelpInputPro().setVisible(true);
     }                                           
 
     private void FormulaTextFieldActionPerformed(java.awt.event.ActionEvent evt) {                                                 
-        // TODO add your handling code here:
     }                                                
 
     private void FormulaComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {                                                 
@@ -1766,18 +1547,15 @@ static  String SampleOutputF_3;
         JComboBox comboBx = (JComboBox) evt.getSource();
         Object selected = FormulaComboBox2.getSelectedItem();
         if (selected.toString().equals("A")) {
-            //jTextField3.setText("A");
             FormulaOutput = FormulaTextField.getText() + "A";
             System.out.println(FormulaOutput);
             FormulaTextField.setText(FormulaOutput);
 
         } else if (selected.toString().equals("B")) {
-            //  jTextField3.setText("B"); 
             FormulaOutput = FormulaTextField.getText() + "B";
             System.out.println(FormulaOutput);
             FormulaTextField.setText(FormulaOutput);
         } else if (selected.toString().equals("C")) {
-            // jTextField3.setText("C"); 
             FormulaOutput = FormulaTextField.getText() + "C";
             System.out.println(FormulaOutput);
             FormulaTextField.setText(FormulaOutput);
@@ -1785,7 +1563,6 @@ static  String SampleOutputF_3;
             FormulaOutput = FormulaTextField.getText() + "D";
             System.out.println(FormulaOutput);
             FormulaTextField.setText(FormulaOutput);
-            // jTextField3.setText("D"); 
         }
 
         getContentPane().add(comboBx);
