@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -871,7 +872,11 @@ public class InputPro extends JFrame {
         NextButton1.setBackground(new java.awt.Color(80, 80, 80));
         NextButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NextButton1ActionPerformed(evt);
+                try {
+					NextButton1ActionPerformed(evt);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
             }
         });
 
@@ -1448,7 +1453,7 @@ public class InputPro extends JFrame {
     private void EventTextField3ActionPerformed(java.awt.event.ActionEvent evt) {                                                
     }                                               
 
-    private void NextButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    private void NextButton1ActionPerformed(java.awt.event.ActionEvent evt) throws Exception {                                            
        
         
         
@@ -1488,49 +1493,40 @@ public class InputPro extends JFrame {
 
         }
       
-        boolean success = false;
         
-        while(!success){
-        try{
-        	String formula = FormulaTextField.getText();
-            
-            List<String> samples = new ArrayList<String>();
-            if (!SampleTextField.getText().isEmpty()){
-            	samples.add(SampleTextField.getText());
-            }
-            if (!SampleTextField2.getText().isEmpty()){
-            	samples.add(SampleTextField2.getText());
-            }
-            if (!SampleTextField5.getText().isEmpty()){
-            	samples.add(SampleTextField5.getText());
-            }
-            if (!SampleTextField3.getText().isEmpty()){
-            	samples.add(SampleTextField3.getText());
-            }
-            
-            List<String> events = new ArrayList<String>();
-            if (!EventTextField.getText().isEmpty()){
-            	events.add(EventTextField.getText());
-            }
-            if (!EventTextField1.getText().isEmpty()){
-            	events.add(EventTextField1.getText());
-            }
-            if (!EventTextField2.getText().isEmpty()){
-            	events.add(EventTextField2.getText());
-            }
-            if (!EventTextField3.getText().isEmpty()){
-            	events.add(EventTextField3.getText());
-            }
-            
-            Problem p = new Problem(samples, events, formula, comb);
-            
-            Controller.getInstance().setData(p);
-        	success = true;
-        }catch(Exception e){
-        	success=false;
-        	System.out.println(e.getMessage());
+        String formula = FormulaTextField.getText();
+        
+        List<String> samples = new ArrayList<String>();
+        if (!SampleTextField.getText().isEmpty()){
+        	samples.add(SampleTextField.getText());
         }
+        if (!SampleTextField2.getText().isEmpty()){
+        	samples.add(SampleTextField2.getText());
         }
+        if (!SampleTextField5.getText().isEmpty()){
+        	samples.add(SampleTextField5.getText());
+        }
+        if (!SampleTextField3.getText().isEmpty()){
+        	samples.add(SampleTextField3.getText());
+        }
+        
+        List<String> events = new ArrayList<String>();
+        if (!EventTextField.getText().isEmpty()){
+        	events.add(EventTextField.getText());
+        }
+        if (!EventTextField1.getText().isEmpty()){
+        	events.add(EventTextField1.getText());
+        }
+        if (!EventTextField2.getText().isEmpty()){
+        	events.add(EventTextField2.getText());
+        }
+        if (!EventTextField3.getText().isEmpty()){
+        	events.add(EventTextField3.getText());
+        }
+        
+        Problem p = new Problem(samples, events, formula, comb);
+        
+        Controller.getInstance().setData(p);
         
 
     }                                           
