@@ -2,6 +2,8 @@ package frame;
 
 
 import java.awt.Color;
+
+
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -17,7 +19,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controller.*;
-import vp.*;
+//import Model.*;
 
 /**
  * @author waleed
@@ -1494,6 +1496,7 @@ public class InputPro extends JFrame {
         }
       
         
+<<<<<<< Updated upstream
         String formula = FormulaTextField.getText();
         
         List<String> samples = new ArrayList<String>();
@@ -1508,6 +1511,47 @@ public class InputPro extends JFrame {
         }
         if (!SampleTextField3.getText().isEmpty()){
         	samples.add(SampleTextField3.getText());
+=======
+        while(!success){
+        try{
+        	String formula = FormulaTextField.getText();
+            
+            List<String> samples = new ArrayList<String>();
+            if (!SampleTextField.getText().isEmpty()){
+            	samples.add(SampleTextField.getText());
+            }
+            if (!SampleTextField2.getText().isEmpty()){
+            	samples.add(SampleTextField2.getText());
+            }
+            if (!SampleTextField5.getText().isEmpty()){
+            	samples.add(SampleTextField5.getText());
+            }
+            if (!SampleTextField3.getText().isEmpty()){
+            	samples.add(SampleTextField3.getText());
+            }
+            
+            List<String> events = new ArrayList<String>();
+            if (!EventTextField.getText().isEmpty()){
+            	events.add(EventTextField.getText());
+            }
+            if (!EventTextField1.getText().isEmpty()){
+            	events.add(EventTextField1.getText());
+            }
+            if (!EventTextField2.getText().isEmpty()){
+            	events.add(EventTextField2.getText());
+            }
+            if (!EventTextField3.getText().isEmpty()){
+            	events.add(EventTextField3.getText());
+            }
+            
+            //Problem p = new Problem(samples, events, formula, comb);
+            
+            Controller.getInstance().setData(samples, events, formula, comb);
+        	success = true;
+        }catch(Exception e){
+        	success=false;
+        	System.out.println(e.getMessage());
+>>>>>>> Stashed changes
         }
         
         List<String> events = new ArrayList<String>();

@@ -1,10 +1,8 @@
-package vp;
+package Model;
 
-import java.io.IOException;
 import java.util.*;
 import java.io.*;
 
-//import frame.*;
 
 public class Main {
 
@@ -17,12 +15,12 @@ public class Main {
 		String S1 = new String("1, 2, 3");
 		String S2 = new String("x,y,z");
 		
-		//String A = new String("*,x");
-		//String B = new String("=2");
+		String A = new String("*,x");
+		String B = new String("=2");
 		//String C = new String("=y");
 				
-		Scanner scan = new Scanner(System.in);
-		String input=null;
+		//Scanner scan = new Scanner(System.in);
+		//String input=null;
 		List<String> samples = new ArrayList<String>();
 		List<String> events = new ArrayList<String>();
 		String formula = null;
@@ -35,8 +33,8 @@ public class Main {
 		samples.add(S1);
 		samples.add(S2);
 		
-		//events.add(A);
-		//events.add(B);
+		events.add(A);
+		events.add(B);
 		//events.add(C);
 		
 		formula = "P(A)";
@@ -57,13 +55,16 @@ public class Main {
 
 			samples.add(S1);
 			samples.add(S2);
+			
+			events.add(A);
+			events.add(B);
 //		System.out.println("Enter sample 1: ");
 //		input = scan.next(); 
 //		samples.add(input);
 ////		problem1.createObjectSample(input);
-		System.out.println("Enter event 1: ");
-		input = scan.next(); 
-		events.add(input);
+//		System.out.println("Enter event 1: ");
+//		input = scan.next(); 
+//		events.add(input);
 ////		problem1.createObjectEvent(input);
 ////		
 //		System.out.println("Enter event 2: ");

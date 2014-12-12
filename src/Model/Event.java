@@ -1,8 +1,7 @@
-package vp;
+package Model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.io.*;
 import java.io.*;
 /*
  * 	Class Event that store all the required fields for each event.
@@ -12,12 +11,14 @@ import java.io.*;
  */
 public class Event {
 	
-	Parser parseObj = new Parser();
-	ListGenerator listgeneratorObj = new ListGenerator();
-	List<String> eventList = new ArrayList<String>();
-	int eventListSize;
-	double eventProb;
-	int star=0;
+	private static char eventidstat = 'A';
+	private char eventid;
+	private Parser parseObj = new Parser();
+	private ListGenerator listgeneratorObj = new ListGenerator();
+	private List<String> eventList = new ArrayList<String>();
+	private int eventListSize;
+	private double eventProb;
+	private int star=0;
 	
 	List<String> inputtokens = new ArrayList<String>();
 	String operator;
@@ -30,6 +31,8 @@ public class Event {
 	
 	public Event(String input)
 	throws IOException{
+		eventid = eventidstat;
+		eventidstat++;
 		if(input.contains("*")) {
 			star=1; 
 			//input = parseObj.parseStar();
@@ -59,13 +62,17 @@ public class Event {
 		//System.out.println("Events\n"+eventList.toString());
 	}
 	
+	public List<String> getEventList(){
+		return eventList;
+	}
+	
 	public String getEventStr(){
-		String str="\n\nEvent lists:\n";
-		for(int i=0 ; i<eventListSize;i++)
-			str += eventList.get(i)+" , ";
+		String str="\n\nEvent lists:\n"+eventList.toString();
+//		for(int i=0 ; i<eventListSize;i++)
+//			str += eventList.get(i)+" , ";
 		
-		str = str.substring(0, str.length()-2);
-		String prob = String.format("\n%.2f", eventProb);
+		//str = str.substring(0, str.length()-2);
+		String prob = String.format("\nP(%c) = %.2f", eventid, eventProb);
 		return str+prob+"\n";
 	}
 	

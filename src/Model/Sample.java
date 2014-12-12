@@ -1,4 +1,4 @@
-package vp;
+package Model;
 
 
 import java.util.*;

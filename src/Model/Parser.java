@@ -1,16 +1,13 @@
-package vp;
+package Model;
 
 import java.util.*;
 import java.io.*;
 
 public class Parser {
 
-	static Deque<String> formula;
-	Deque<String> formulalg;
-	
-	List<String> eventstag = new ArrayList<String>();
-	char op;
-
+	private static Deque<String> formula;
+	private Deque<String> formulalg;
+	private List<String> eventstag = new ArrayList<String>();
 	
 	Parser(){
 		formula = new ArrayDeque<String>();
@@ -37,9 +34,6 @@ public class Parser {
 			return "="+ ":"+ txt.substring(1).trim();
 		}else{
 			throw new IOException("Unknown operator. Use '>', '<' or '='. Or use comma(s) to specify a set.");
-			//System.err.print("Unknown operator. Use '>', '<' or '='. Or use comma(s) to specify a set.");
-			//System.exit(0);
-			//return null;
 		}		
 	}
 	
@@ -56,14 +50,10 @@ public class Parser {
 					return cf;}
 				else{ 
 					throw new IOException("Wrong syntax of the formula: It should start with: P(...");
-					//System.err.print(;
-					//return "";
 				}			
 			}
 			else{
 				throw new IOException("Wrong syntax of the formula: It should start with: P(...");
-//				System.err.print("Wrong syntax of the formula: It should start with: P(...");
-//				return "";
 			}
 		}
 
@@ -84,9 +74,6 @@ public class Parser {
 			
 				if ( !formula.pop().equals(")") ) {   
 					throw new IOException("Wrong syntax of the formula: Missing right parenthesis.");
-
-					//System.err.print("Wrong syntax of the formula: Missing right parenthesis.");
-					//return "";
 				}
 			
 				 switch (op) {   //  Apply the operator and return the result. 
@@ -97,27 +84,23 @@ public class Parser {
 			}
 			else {
 				throw new IOException("Encountered unexpected character.");
-				//System.err.print("Encountered unexpected character.");
-				//return "";
 			}
 		} // end expressionValue()
 		
-		static char getOperator(char op)
+		private static char getOperator(char op)
 		throws IOException{
 		   if ( op == '&' || op == '|' ) { 
 		      return op;
 		   }
 		  else if (op == '\n'){
 				throw new IOException("Missing operator at end of line.");
-			  //System.err.print("Missing operator at end of line.");
-			  //return ' ';
 		  }
 		   else{
 			   throw new IOException("Missing operator.  Found \"" +op + "\" instead of &, |.");
-			   //System.err.print("Missing operator.  Found \"" +
-		           // op + "\" instead of &, |.");
-				 // return ' ';
 		   }
 		} // end getOperator()
 	
+		public Deque<String> getformulalg(){
+			return formulalg;
+		}
 }

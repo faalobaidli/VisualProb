@@ -1,17 +1,16 @@
-package vp;
+package Model;
 
 import java.util.*;
 import java.io.*;
 
 public class Formula {
-	String inputFormula;
-	List<String> formulaList;
-	Parser parse;
-	ListGenerator generate;
-	static Deque<String> formula;
-	ListGenerator listgeneratorObj = new ListGenerator();
-	double formulaProb;
-	int formulaListSize;
+	private String inputFormula;
+	private List<String> formulaList;
+	private Parser parse;
+	private ListGenerator listgeneratorObj;
+	private static Deque<String> formula;
+	private double formulaProb;
+	private int formulaListSize;
 	
 	Formula(String s)
 	throws IOException{
@@ -19,9 +18,9 @@ public class Formula {
 		inputFormula = s;
 		formulaList = new ArrayList<String>();
 		parse = new Parser();
-		generate = new ListGenerator();
+		listgeneratorObj = new ListGenerator();
 		parse.formulaParser(inputFormula.trim());
-		formula = parse.formulalg;	
+		formula = parse.getformulalg();	
 		formulaListSize=0;
 		formulaProb=0.0;
 	}
@@ -34,10 +33,10 @@ public class Formula {
 	}
 
 	public String getFormulaStr(){
-		String str = "\nFormula lists:\n";
-		for(int i=0;i<formulaListSize;i++)
-			str += formulaList.get(i)+" , ";
-		str = str.substring(0, str.length()-2);
+		String str = "\nFormula lists:\n"+formulaList.toString();
+//		for(int i=0;i<formulaListSize;i++)
+//			str += formulaList.get(i)+" , ";
+		//str = str.substring(0, str.length()-2);
 		String prob = String.format("\n%.2f", formulaProb);
 		return str+prob;
 	}
